@@ -1,1 +1,13 @@
 # Final_project_Uresens
+
+# Links and Resources
+
+- Cleaned dataset from: https://www.kaggle.com/datasets/abhia1999/chronic-kidney-disease
+- Original dataset: https://archive.ics.uci.edu/ml/datasets/Chronic_Kidney_Disease
+- Paper about this: https://www.hindawi.com/journals/cmmm/2021/6141470/
+
+- Kidney stone original paper: https://link-springer-com.sabidi.urv.cat/chapter/10.1007/978-1-4612-5098-2_45
+
+- Urine pH dataset: https://www.kaggle.com/datasets/zfturbo/measurements-of-urine-ph?select=ph_v1_days.csv
+  
+- pH recognition dataset: https://www.kaggle.com/datasets/robjan/ph-recognition
