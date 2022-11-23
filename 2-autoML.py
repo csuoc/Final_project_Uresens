@@ -1,5 +1,5 @@
 # Generic
-
+import pandas as pd
 import warnings
 warnings.filterwarnings(action='ignore')
 
@@ -14,10 +14,10 @@ df = h2o.import_file("./data/chronic_disease_db_clean.csv")
 
 # Encoding columns
 
-df["Blood Pressure mm/Hg diastolic"] = df["Blood Pressure mm/Hg diastolic"].asfactor()
-df["Albumin (0-5)"] = df["Albumin (0-5)"].asfactor()
-df["Sugar (0-5)"] = df["Sugar (0-5)"].asfactor()
-df["Blood Urea mg/dL"] = df["Blood Urea mg/dL"].asfactor()
+#df["Blood Pressure mm/Hg diastolic"] = df["Blood Pressure mm/Hg diastolic"].asfactor()
+#df["Albumin (0-5)"] = df["Albumin (0-5)"].asfactor()
+#df["Sugar (0-5)"] = df["Sugar (0-5)"].asfactor()
+#df["Blood Urea mg/dL"] = df["Blood Urea mg/dL"].asfactor()
 #df["Serum Creatinine mg/dL"] = df["Serum Creatinine mg/dL"].asfactor()
 df["Hypertension Yes/No"] = df["Hypertension Yes/No"].asfactor()
 df["CKD Yes/No"] = df["CKD Yes/No"].asfactor()
@@ -37,5 +37,10 @@ print(lb.head(rows=lb.nrows))
 
 # Save model
 
-h2o.save_model(aml.leader, path = "./models/XRTh2omodel")
+h2o.save_model(aml.leader, path = "./models/")
+
+# Predict
+
+test = h2o.import_file("./data/test.csv")
+preds = aml.leader.predict(test)
 
