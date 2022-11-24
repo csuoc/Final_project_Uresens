@@ -3,6 +3,10 @@
 import streamlit as st
 import mysql.connector
 
+# Head
+
+st.set_page_config(page_title="Submit your results", page_icon="📮")
+
 # Initialize connection.
 
 def init_connection():
@@ -27,11 +31,11 @@ st.title("Submit your results")
 # INSERT
 
 patientid = st.text_input("Enter your name")
-blood_pressure = st.number_input("Enter your blood pressure value (diastolic)")
-albumin = st.number_input("Enter your albumin value (0-5)")
-sugar = st.number_input("Enter your sugar value (0-5)")
-blood_urea = st.number_input("Enter your blood urea levels")
-creatinine = st.number_input("Enter your creatinine levels")
+blood_pressure = st.text_input("Enter your blood pressure value (diastolic)")
+albumin = st.text_input("Enter your albumin value (0-5)")
+sugar = st.text_input("Enter your sugar value (0-5)")
+blood_urea = st.text_input("Enter your blood urea levels")
+creatinine = st.text_input("Enter your creatinine levels")
 hypertension = st.text_input("Do you have hypertension?")
 
 
