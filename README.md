@@ -11,3 +11,5 @@
 - Urine pH dataset: https://www.kaggle.com/datasets/zfturbo/measurements-of-urine-ph?select=ph_v1_days.csv
   
 - pH recognition dataset: https://www.kaggle.com/datasets/robjan/ph-recognition
+
+- H2O tutorial: https://github.com/h2oai/h2o-tutorials/blob/master/h2o-world-2017/automl/Python/automl_binary_classification_product_backorders.ipynb
