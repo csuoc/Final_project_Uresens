@@ -12,6 +12,7 @@ h2o.init()
 # Import cleaned csv into H2O
 
 df = h2o.import_file("./data/chronic_disease_db_clean.csv")
+df = df.drop("Patient", axis=1)
 
 # Factorizing class columns
 
