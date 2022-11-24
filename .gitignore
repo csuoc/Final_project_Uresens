@@ -134,4 +134,4 @@ catboost_info/
 
 # Passwords streamlit
 
-streamlit/secrets.toml
+.streamlit/secrets.toml
