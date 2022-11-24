@@ -131,3 +131,7 @@ dmypy.json
 # Catboost
 
 catboost_info/
+
+# Passwords streamlit
+
+streamlit/secrets.toml
