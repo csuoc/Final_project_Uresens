@@ -32,7 +32,7 @@ def run_query(query):
 st.title("Submit your results")
 
 
-# INSERT INTO SQL
+# Insert into MySQL
 
 patientid = st.text_input("Enter your name")
 blood_pressure = st.text_input("Enter your blood pressure value (diastolic)")
