@@ -1,7 +1,7 @@
 import streamlit as st
-from PIL import Image
 from streamlit_extras.app_logo import add_logo
 from functions.functions import add_text_sidebar
+import matplotlib.image as mpimg
 
 # Head
 
@@ -13,5 +13,6 @@ add_text_sidebar()
 
 st.write("Hello world! I'm Carles, the creator of UreSens")
 
-cover = Image.open("images/Carles2.jpg")
-st.image(cover, width=400)
+img = mpimg.imread("./images/Carles.JPG")
+
+st.image(img, width=400)
