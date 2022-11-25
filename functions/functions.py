@@ -32,3 +32,21 @@ def integrify(df, column_name):
     """
     df[f"{column_name}"] = df[f"{column_name}"].astype(int)
     return df
+
+def add_text_sidebar():
+    import streamlit as st
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"]::before {
+                content: "UreSens App";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 30px;
+                position: relative;
+                top: 80px;
+                }
+            </style>
+            """,
+            unsafe_allow_html=True
+    )

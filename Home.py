@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 from streamlit_extras.app_logo import add_logo
+from functions.functions import add_text_sidebar
 
 
 st.set_page_config(
@@ -9,6 +10,7 @@ st.set_page_config(
 )
 
 add_logo("https://i.ibb.co/TTF105V/logo2.png")
+add_text_sidebar()
 
 
 cover = Image.open("images/logo2.png")

@@ -7,6 +7,6 @@ from functions.functions import add_text_sidebar
 
 # Head
 
-st.set_page_config(page_title="Medical records", page_icon="📜")
+st.set_page_config(page_title="Instructions", page_icon="📮")
 add_logo("https://i.ibb.co/TTF105V/logo2.png")
 add_text_sidebar()
