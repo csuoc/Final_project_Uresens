@@ -5,6 +5,7 @@ import streamlit as st
 import mysql.connector
 from streamlit_extras.app_logo import add_logo
 from functions.functions import add_text_sidebar
+import plotly.express as px
 
 # Head
 
@@ -32,10 +33,13 @@ st.title("Your medical records")
 
 # Retrieve from MySQL
 
-getSQL = f"""SELECT * FROM samples
-            WHERE patientid = "Test1";
+getSQL = f"""SELECT blood_pressure, albumin, sugar, blood_urea, creatinine FROM samples;
         """
 result = pd.read_sql_query(getSQL, con=conn)
 
+df = pd.DataFrame(result)
 
-st.dataframe(result)
+y_axis_val = st.selectbox("Select Y axis", options=df.columns)
+
+fig = px.line(df, y=y_axis_val)
+st.plotly_chart(fig)
