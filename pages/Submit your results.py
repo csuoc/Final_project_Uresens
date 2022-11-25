@@ -35,6 +35,7 @@ st.title("Submit your results")
 # Insert into MySQL
 
 patientid = st.text_input("Enter your name")
+date = st.date_input("Input your date")
 blood_pressure = st.text_input("Enter your blood pressure value (diastolic)")
 albumin = st.text_input("Enter your albumin value (0-5)")
 sugar = st.text_input("Enter your sugar value (0-5)")
@@ -48,8 +49,8 @@ if st.button("Submit your results"):
     st.success("Results submitted succesfully", icon="✅")
     st.balloons()
     insertSQL = f"""INSERT INTO samples
-     (patientid, blood_pressure, albumin, sugar, blood_urea, creatinine, hypertension) 
-        VALUES ('{patientid}', '{blood_pressure}', '{albumin}', '{sugar}', '{blood_urea}', '{creatinine}', '{hypertension}');
+     (patientid, date, blood_pressure, albumin, sugar, blood_urea, creatinine, hypertension) 
+        VALUES ('{patientid}', '{date}', '{blood_pressure}', '{albumin}', '{sugar}', '{blood_urea}', '{creatinine}', '{hypertension}');
     """
     run_query(insertSQL)
 

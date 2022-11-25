@@ -33,13 +33,15 @@ st.title("Your medical records")
 
 # Retrieve from MySQL
 
-getSQL = f"""SELECT blood_pressure, albumin, sugar, blood_urea, creatinine FROM samples;
+getSQL = f"""SELECT date, blood_pressure, albumin, sugar, blood_urea, creatinine FROM samples;
         """
 result = pd.read_sql_query(getSQL, con=conn)
 
+# Save as dataframe
+
 df = pd.DataFrame(result)
 
-y_axis_val = st.selectbox("Select Y axis", options=df.columns)
-
-fig = px.line(df, y=y_axis_val)
+# Plot
+y_axis_val = st.selectbox("Select Y axis", options=["blood_pressure", "albumin", "sugar", "blood_urea", "creatinine"])
+fig = px.line(df, x=df["date"], y=y_axis_val)
 st.plotly_chart(fig)

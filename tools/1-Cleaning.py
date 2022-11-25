@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 # Import file
 
-df = pd.read_csv("./data/chronic_disease_db.csv")
+df = pd.read_csv("../data/chronic_disease_db.csv")
 
 # Renaming columns
 
@@ -53,4 +53,4 @@ df.insert(loc=0, column="Patient", value=list(range(1,401)))
 
 # Exporting
 
-df.to_csv("./data/chronic_disease_db_clean.csv", index=False)
+df.to_csv("../data/chronic_disease_db_clean.csv", index=False)
