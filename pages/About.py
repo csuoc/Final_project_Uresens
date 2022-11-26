@@ -13,6 +13,6 @@ add_text_sidebar()
 
 st.write("Hello world! I'm Carles, the creator of UreSens")
 
-img = mpimg.imread("./images/Carles.JPG")
+img = mpimg.imread("./images/Carles.jpg")
 
 st.image(img, width=400)
