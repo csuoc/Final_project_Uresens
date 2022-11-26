@@ -21,3 +21,5 @@
 - pH recognition dataset: https://www.kaggle.com/datasets/robjan/ph-recognition
 
 - H2O tutorial: https://github.com/h2oai/h2o-tutorials/blob/master/h2o-world-2017/automl/Python/automl_binary_classification_product_backorders.ipynb
+
+-MySQL Connector: https://dev.mysql.com/doc/connector-python/en/connector-python-example-cursor-select.html
