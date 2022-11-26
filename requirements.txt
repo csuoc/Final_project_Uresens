@@ -11,4 +11,3 @@ opencv-python==4.6.0.66
 imutils==0.5.4
 plotly==5.11.0
 streamlit-extras==0.2.4
-conda-forge::openjdk=13.0.2
