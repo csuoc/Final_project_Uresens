@@ -4,6 +4,7 @@ import streamlit as st
 import mysql.connector
 from streamlit_extras.app_logo import add_logo
 from functions.functions import add_text_sidebar
+from streamlit_extras.colored_header import colored_header
 
 ########## Head ##########
 
@@ -29,19 +30,31 @@ def run_query(query):
 
 ########## Body ##########
 
-st.title("Submit your results")
-
+colored_header(
+    label="Submit your results",
+    description="Insert",
+    color_name="red-70"
+)
 
 ########## Insert into MySQL ##########
 
 patientid = st.text_input("Enter your name")
 date = st.date_input("Input your date")
+
+#color = st.color_picker('#ff5733')
+
 blood_pressure = st.number_input("Enter your blood pressure value (diastolic)", 0, 200)
 albumin = st.number_input("Enter your albumin value (0-5)", 0, 5)
 sugar = st.number_input("Enter your sugar value (0-5)", 0, 5)
 blood_urea = st.number_input("Enter your blood urea levels", 0, 100)
 creatinine = st.number_input("Enter your creatinine levels", 0, 100)
-hypertension = st.text_input("Do you have hypertension?")
+
+hypertension = st.selectbox("Do you have hypertension?",
+                            ("Yes", "No"))
+if hypertension == "Yes":
+    hypertension = 1
+elif hypertension == "No":
+    hypertension = 0
 
 
 if st.button("Submit your results"):
