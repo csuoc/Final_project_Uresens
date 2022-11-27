@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 # Import file
 
-df = pd.read_csv("../data/chronic_disease_db.csv")
+df = pd.read_csv("./data/chronic_disease_db.csv")
 
 # Renaming columns
 
@@ -36,14 +36,14 @@ print("\n")
 
 # Deleting useless columns
 
-to_delete=["Eritrocytes Ok/NOk", "Specific Gravity", "Na mEq/L", "K mEq/L", "Hemoglobin gms", "White Blood Cell Count cell/cumm", "Red blood cell count mill/cmm"]
+to_delete=["Serum Creatinine mg/dL", "Blood Urea mg/dL", "Specific Gravity", "Na mEq/L", "K mEq/L", "Hemoglobin gms", "White Blood Cell Count cell/cumm", "Red blood cell count mill/cmm"]
 
 for i in to_delete:
     remove_columns(df,i)
 
 # Integrify
 
-to_integer=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Blood Urea mg/dL", "Hypertension Yes/No", "CKD Yes/No"]
+to_integer=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Eritrocytes Ok/NOk", "Hypertension Yes/No", "CKD Yes/No"]
 for i in to_integer:
     integrify(df, i)
 
@@ -53,4 +53,4 @@ df.insert(loc=0, column="Patient", value=list(range(1,401)))
 
 # Exporting
 
-df.to_csv("../data/chronic_disease_db_clean.csv", index=False)
+df.to_csv("./data/chronic_disease_db_clean.csv", index=False)

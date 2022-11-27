@@ -11,11 +11,12 @@ h2o.init()
 
 # Import cleaned csv into H2O
 
-df = h2o.import_file("../data/chronic_disease_db_clean.csv")
+df = h2o.import_file("data/chronic_disease_db_clean.csv")
 df = df.drop("Patient", axis=1)
 
 # Factorizing class columns
 
+df["Eritrocytes Ok/NOk"] = df["Eritrocytes Ok/NOk"].asfactor()
 df["Albumin (0-5)"] = df["Albumin (0-5)"].asfactor()
 df["Sugar (0-5)"] = df["Sugar (0-5)"].asfactor()
 df["Hypertension Yes/No"] = df["Hypertension Yes/No"].asfactor()
@@ -39,4 +40,4 @@ print(lb.head(rows=lb.nrows))
 
 # Save first (and best) model
 
-h2o.save_model(aml.leader, path = "../models")
+h2o.save_model(aml.leader, path = "./models")

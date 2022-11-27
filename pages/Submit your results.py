@@ -51,7 +51,7 @@ date = st.date_input("🗓 Input your date")
 
 #Blood pressure
 
-blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic)", 0, 200)
+blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):", 0, 200)
 
 
 
@@ -65,9 +65,9 @@ a_300 = resize_images(image_path="./images/Protein/300.jpg", width=1, height=1)
 a_1000 = resize_images(image_path="./images/Protein/1000.jpg", width=1, height=1)
 
 albumin = image_select(use_container_width=False,
-    label="🥚 Enter your albumin value (0-5)",
+    label="🥚 Select your protein results:",
     images=[a_neg, a_trace, a_30, a_100, a_300, a_1000],
-    captions=["Negative", "Trace levels", "+30)0.3)", "++100(1.0)", "+++300(3.0)", "++++1000(10)"]
+    captions=["Negative", "Trace levels", "+30(0.3)", "++100(1.0)", "+++300(3.0)", "++++1000(10)"]
 )
 
 if albumin == a_neg:
@@ -93,9 +93,9 @@ s_1000 = resize_images(image_path="./images/Sugar/1000.jpg", width=1, height=1)
 s_2000 = resize_images(image_path="./images/Sugar/2000.jpg", width=1, height=1)
 
 sugar = image_select(use_container_width=False,
-    label="🍭 Enter your sugar value",
+    label="🍭 Select your glucose results:",
     images=[s_neg, s_100, s_250, s_500, s_1000, s_2000],
-    captions=["Negative", "Trace levels", "+30)0.3)", "++100(1.0)", "+++300(3.0)", "++++1000(10)"]
+    captions=["Negative", "+-100(5.5)", "+250(14)", "++500(28)", "+++1000(55)", "++++2000(111)"]
 )
 
 if sugar == s_neg:
@@ -112,9 +112,28 @@ else:
     sugar = 5
 
 
-# Blood urea
-blood_urea = st.number_input("🩸 Enter your blood urea levels", 0, 100)
-creatinine = st.number_input("🧬 Enter your creatinine levels", 0, 100)
+# Blood levels
+
+b_neg = resize_images(image_path="./images/Blood/neg.jpg", width=1, height=1)
+b_trace = resize_images(image_path="./images/Blood/trace.jpg", width=1, height=1)
+b_25 = resize_images(image_path="./images/Blood/25.jpg", width=1, height=1)
+b_80= resize_images(image_path="./images/Blood/80.jpg", width=1, height=1)
+b_200= resize_images(image_path="./images/Blood/200.jpg", width=1, height=1)
+b_nh10 = resize_images(image_path="./images/Blood/nh10.jpg", width=50, height=50)
+b_nh80 = resize_images(image_path="./images/Blood/nh80.jpg", width=50, height=50)
+
+erythrocytes = image_select(use_container_width=False,
+    label="🩸 Enter your blood results:",
+    images=[b_neg, b_trace, b_25, b_80, b_200, b_nh10, b_nh80],
+    captions=["Negative", "Hemolysis trace", "+25", "++80", "+++200", "Non-hemolysis + 10", "Non-hemolysis ++ 80"]
+)
+
+if erythrocytes == b_neg or b_trace:
+    erythrocytes = 1
+else:
+    erythrocytes = 0
+
+# Hypertension
 
 hypertension = st.selectbox("📈 Do you have hypertension?",
                             ("Yes", "No"))
@@ -123,14 +142,14 @@ if hypertension == "Yes":
 elif hypertension == "No":
     hypertension = 0
 
+# Submitting
 
 if st.button("Submit your results"):
 
     st.success("Results submitted succesfully", icon="✅")
-    st.balloons()
     insertSQL = f"""INSERT INTO samples
-     (patientid, date, blood_pressure, albumin, sugar, blood_urea, creatinine, hypertension) 
-        VALUES ('{patientid}', '{date}', '{blood_pressure}', '{albumin}', '{sugar}', '{blood_urea}', '{creatinine}', '{hypertension}');
+     (patientid, date, blood_pressure, albumin, sugar, erythrocytes, hypertension) 
+        VALUES ('{patientid}', '{date}', '{blood_pressure}', '{albumin}', '{sugar}', '{erythrocytes}', '{hypertension}');
     """
     run_query(insertSQL)
 

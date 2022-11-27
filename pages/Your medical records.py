@@ -49,19 +49,29 @@ names = pd.read_sql_query(getnames, con=conn)
 patientid = st.selectbox("Select your name", options=names)
 
 # Retrieve from MySQL
-getresults = f"""SELECT date, blood_pressure, albumin, sugar, blood_urea, creatinine FROM samples
+getresults = f"""SELECT date, blood_pressure, albumin, sugar, erythrocytes FROM samples
                 WHERE patientid="{patientid}";
             """
 result = pd.read_sql_query(getresults, con=conn)
 # Convert as dataframe
 df = pd.DataFrame(result)
 # Rename columns
-new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Blood Urea mg/dL", "Serum Creatinine mg/dL", "Hypertension Yes/No"]
+new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk"]
 for i, j in zip(df.columns, new_name):
     rename_columns(df, i, j)
 # Plot
-y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Blood Urea mg/dL", "Serum Creatinine mg/dL"])
-fig = px.line(df, x=df["Date"], y=y_axis_val)
+y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk"])
+fig = px.line(df, x=df["Date"], y=y_axis_val, markers=True)
+#fig.update_xaxes(tickformat="%b %d\n%Y")
+
+MAX_DAYS_WITH_DTICK_FORMAT = 10 # you can change this!
+# compute number of days in date range of date column
+max_date = pd.to_datetime(df["Date"]).max()
+min_date = pd.to_datetime(df["Date"]).min()
+num_days = (max_date - min_date).days
+# set tick interval if number of days within specified limit
+if num_days < MAX_DAYS_WITH_DTICK_FORMAT:
+    fig.update_xaxes(dtick=86400000)
 st.plotly_chart(fig)
 
 ########## Prediction ##########
@@ -73,13 +83,13 @@ colored_header(
 )
 
 # Retrieve from MySQL the required parameters
-info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), AVG(blood_urea), AVG(creatinine), MAX(hypertension) from samples
-           WHERE patientid="Test1";
+info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), MAX(erythrocytes), MAX(hypertension) from samples
+           WHERE patientid="{patientid}";
         """
 sqlex = pd.read_sql_query(info, con=conn)
 df2 = pd.DataFrame(sqlex)
 # Rename columns
-new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Blood Urea mg/dL", "Serum Creatinine mg/dL", "Hypertension Yes/No"]
+new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk", "Hypertension Yes/No"]
 for i, j in zip(df2.columns, new_name):
     rename_columns(df2, i, j)
 
@@ -90,7 +100,7 @@ def prediction(dataframe):
     # Load file
     test = h2o.H2OFrame(dataframe)
     # Load the model
-    my_model = h2o.load_model("./models/XRT_1_AutoML_1_20221124_232959")
+    my_model = h2o.load_model("./models/GBM_grid_1_AutoML_1_20221127_175518_model_1")
     predictions = my_model.predict(test)
     return predictions
 
@@ -101,9 +111,11 @@ try:
 except:
     st.error("Something went wrong, please try again later")
 
-if predictions["predict"] == 1:
-    st.write("You probably have Chronic Kidney Disease")
-elif predictions["predict"] == 0:
+data = h2o.as_list(predictions, use_pandas=False)
+
+if int(data[1][0]) == 1:
+    st.write(f"{patientid}, you probably have Chronic Kidney Disease")
+elif int(data[1][0]) == 0:
     st.write("The model predicts you don't have Chronic Kidney Disease")
 else:
     st.error("Something went wrong, please try again later")
