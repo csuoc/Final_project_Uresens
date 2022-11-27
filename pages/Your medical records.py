@@ -49,18 +49,24 @@ names = pd.read_sql_query(getnames, con=conn)
 patientid = st.selectbox("Select your name", options=names)
 
 # Retrieve from MySQL
-getresults = f"""SELECT date, blood_pressure, albumin, sugar, erythrocytes FROM samples
-                WHERE patientid="{patientid}";
-            """
+getresults = f"""SELECT date, blood_pressure, albumin, sugar, erythrocytes, leucocytes, nitrite, urobilinogen, ph,
+                        gravity, ketones, bilirubin FROM samples
+                            WHERE patientid="{patientid}";
+              """
 result = pd.read_sql_query(getresults, con=conn)
 # Convert as dataframe
 df = pd.DataFrame(result)
 # Rename columns
-new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk"]
+new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk", 
+          "Leucocytes WBC/µL", "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL", "Bilirubin"
+        ]
 for i, j in zip(df.columns, new_name):
     rename_columns(df, i, j)
 # Plot
-y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk"])
+y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", 
+                          "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk", "Leucocytes WBC/µL", 
+                          "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL"
+                          "Bilirubin"])
 fig = px.line(df, x=df["Date"], y=y_axis_val, markers=True)
 #fig.update_xaxes(tickformat="%b %d\n%Y")
 
