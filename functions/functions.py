@@ -50,3 +50,9 @@ def add_text_sidebar():
             """,
             unsafe_allow_html=True
     )
+
+def resize_images(image_path, width, height):
+    from PIL import Image
+    img = Image.open(image_path)
+    resized_image = img.resize((width, height))
+    return resized_image

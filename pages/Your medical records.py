@@ -41,11 +41,18 @@ colored_header(
 
 ########## Plots ##########
 
-# Retrieve from MySQL
-getSQL = f"""SELECT date, blood_pressure, albumin, sugar, blood_urea, creatinine FROM samples
-                WHERE patientid="Test1";
+# Select person
+
+getnames = f"""SELECT DISTINCT(patientid) from samples;
             """
-result = pd.read_sql_query(getSQL, con=conn)
+names = pd.read_sql_query(getnames, con=conn)
+patientid = st.selectbox("Select your name", options=names)
+
+# Retrieve from MySQL
+getresults = f"""SELECT date, blood_pressure, albumin, sugar, blood_urea, creatinine FROM samples
+                WHERE patientid="{patientid}";
+            """
+result = pd.read_sql_query(getresults, con=conn)
 # Convert as dataframe
 df = pd.DataFrame(result)
 # Rename columns
@@ -53,13 +60,17 @@ new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5
 for i, j in zip(df.columns, new_name):
     rename_columns(df, i, j)
 # Plot
-y_axis_val = st.selectbox("Select Y axis", options=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Blood Urea mg/dL", "Serum Creatinine mg/dL"])
+y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Blood Urea mg/dL", "Serum Creatinine mg/dL"])
 fig = px.line(df, x=df["Date"], y=y_axis_val)
 st.plotly_chart(fig)
 
 ########## Prediction ##########
 
-st.title("Prediction")
+colored_header(
+    label="Prediction",
+    description="Insert",
+    color_name="red-70"
+)
 
 # Retrieve from MySQL the required parameters
 info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), AVG(blood_urea), AVG(creatinine), MAX(hypertension) from samples
@@ -97,9 +108,8 @@ elif predictions["predict"] == 0:
 else:
     st.error("Something went wrong, please try again later")
 
-## Reload cache
+########## Reload cache ##########
 if st.button('Reload prediction'):
-
     try:
         predictions=prediction(df2)
     except:
