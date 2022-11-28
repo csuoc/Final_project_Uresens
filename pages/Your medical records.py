@@ -3,7 +3,7 @@
 import pandas as pd
 import streamlit as st
 import mysql.connector
-import sqlalchemy
+
 from streamlit_extras.app_logo import add_logo
 from functions.functions import add_text_sidebar
 from functions.functions import rename_columns
