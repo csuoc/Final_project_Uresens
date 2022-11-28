@@ -8,4 +8,3 @@ imutils==0.5.4
 plotly==5.11.0
 streamlit-extras==0.2.4
 streamlit-image-select==0.5.1
-"https://files.pythonhosted.org/packages/4f/74/32d063b237a6b88fc7e0ffdeebbb9f62848a6da908c403f3a5c35eff3a42/install-jdk-0.3.0.tar.gz"
