@@ -57,10 +57,8 @@ st.write("Please fill the following form. Input the required parameters marked w
 ########## Insert into MySQL ##########
 
 # Name
+
 patientid = st.text_input("🧍‍♂️🧍‍♀️ Enter your name*")
-if not patientid:
-  st.warning('Please input a name.')
-  st.stop()
 
 # Date
 
@@ -69,9 +67,6 @@ date = st.date_input("🗓 Input your date*")
 #Blood pressure
 
 blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):*", 0, 200)
-if not blood_pressure:
-  st.warning('Please input a value')
-  st.stop()
 
 # Hypertension
 

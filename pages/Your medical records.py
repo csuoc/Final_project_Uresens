@@ -83,14 +83,36 @@ if num_days < MAX_DAYS_WITH_DTICK_FORMAT:
     fig.update_xaxes(dtick=86400000)
 st.plotly_chart(fig)
 
-st.subheader("How to interpret the results")
+########## Expected results##########
 
-st.write("**Urobilinogen**: The absence of urobilinogen in the sample cannot be determined. The test area reacts with interfering substances known to react with the Ehrlich reagent, such as p-aminosalicylic acid. Drugs containing azo-ganstrisin may give a masking golden colour. The test is not a reliable method for the detection of porphobilinogen.")
-st.write("**Glucose**: a high Specific Gravity (> 1.020) with high pH urine and ascorbic acid (greater than 40 mg/dL) may give a false negative for samples containing a small amount of glucose (100 mg/dL). Reactivity may be influenced by urine EG and temperature.")
+st.subheader("Expected results")
 
-
-
-
+if y_axis_val == "Urobilinogen mg/dL":
+    st.write("The normal range of urobilinogen is 0.1 to 1.0 Ehrlich units/dL. If results exceed 2.0 mg/ dL, the patient and urine sample should be further evaluated.")
+elif y_axis_val == "Sugar (0-5)":
+    st.write("Small amounts of glucose are normally excreted by the kidney. Concentrations of 100 mg/dL may be considered abnormal if found repeatedly.")
+elif y_axis_val == "Bilirubin":
+    st.write("Bilirubin is normally not detectable in urine, even by the most sensitive methods. Only small amounts of bilirubin are already sufficiently abnormal to require further investigation.")
+elif y_axis_val == "Ketones mg/dL":
+    st.write("Ketone bodies should not be detected in normal urine samples with this reagent.")
+elif y_axis_val == "pH":
+    st.write("Urine pH values generally range from 5 to 9.")
+elif y_axis_val == "Erythrocytes levels Ok/NOk":
+    st.write("Normally, haemoglobin is not detectable in urine (0.010 mg/dL; 3 red blood cells/µL). When haemoglobin appears in the urine, it indicates kidney disease or a urinary tract disorder. Blood can often be found in the urine of menstruating women.")
+elif y_axis_val == "Specific Gravity":
+    st.write("Normal specific gravity in urine ranges from 1.001 to 1.035.")
+elif y_axis_val == "Albumin (0-5)":
+    st.write("Normal urine samples usually contain little protein (<20 mg/dL), therefore only persistently elevated urine protein levels indicate kidney or urinary tract disease. Persistent results of trace or more indicate significant proteinuria and therefore further clinical trials are needed to evaluate the significance of the results.")
+elif y_axis_val == "Nitrite":
+    st.write("Nitrites are normally not detectable in urine.")
+elif y_axis_val == "Leucocytes WBC/µL":
+    st.write("Leukocytes are not normally detectable in urine.")
+elif y_axis_val == "Microalbumin mg/dL":
+    st.write("Normal urine albumin levels are less than 2 mg/dL. Microalbumin is indicated with results of 3 ~ 30 mg/dL.")
+elif y_axis_val == "Creatinine mg/dL":
+    st.write("The urine of healthy individuals contains 10 ~ 300 mg/dL creatinine. Very low creatinine results may be caused by adulteration of the urine sample or severe renal insufficiency.")
+#elif y_axis_val =="Microalbumin mg/dL":
+#    st.write("*Microalbumin is normally present in urine at concentrations of less than 30 mg albumin/g creatinine. Microalbumin is indicated at a result ratio of 30 ~300 mg/g (abnormal) and clinical albuminuria at a result ratio of > 300 mg/g (high abnormal).")
 
 ########## Prediction ##########
 
@@ -135,7 +157,7 @@ if int(data[1][0]) == 1:
     st.write(f"{patientid}, you probably have Chronic Kidney Disease")
 elif int(data[1][0]) == 0:
     st.write("The model predicts you don't have Chronic Kidney Disease")
-    st.balloons()
+    #st.balloons()
 else:
     st.error("Something went wrong, please try again later")
 
