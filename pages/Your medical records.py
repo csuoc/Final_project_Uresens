@@ -146,11 +146,7 @@ def prediction(dataframe):
 
 st.write("Based on your current values, the prediction is")
 
-
 predictions=prediction(df2)
-
-#st.error("Something went wrong, please try again later")
-
 data = h2o.as_list(predictions, use_pandas=False)
 
 if int(data[1][0]) == 1:
