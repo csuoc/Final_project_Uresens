@@ -18,20 +18,20 @@ card(
     title="About UreSens",
     text="Discover who's behind the app",
     image="https://i.ibb.co/JqQjkmK/Carles.jpg",
-    url="http://localhost:8501/About#hello",
+    url="/About#hello",
 )
 
 card(
     title="What is CKD?",
     text="Symptoms, causes, treatment",
     image="https://i.ibb.co/m4Dr1t0/CKD1.jpg",
-    url="http://localhost:8501/About#hello",
+    url="/Chronic_Kidney_Disease#what-is-chronic-kidney-disease",
 )
 
 card(
     title="Submit your results",
     text="Take an urine test and upload here your results",
     image="https://i.ibb.co/gV5K0kS/urinetest.jpg",
-    url="http://localhost:8501/About#hello",
+    url="/Submit_your_results#submit-your-results",
 )
 
