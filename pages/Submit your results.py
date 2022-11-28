@@ -37,7 +37,7 @@ def run_query(query):
 
 colored_header(
     label="Submit your results",
-    description="Insert",
+    description="Only for in vitro diagnostic",
     color_name="red-70"
 )
 
@@ -53,19 +53,31 @@ img = mpimg.imread("./images/urinetest.jpg")
 st.image(img, use_column_width=True)
 
 st.write("Please fill the following form. Input the required parameters marked with a *. Then select the resulting color of each component in your sample")
+
 ########## Insert into MySQL ##########
 
+# Name
 patientid = st.text_input("🧍‍♂️🧍‍♀️ Enter your name*")
+if not patientid:
+  st.warning('Please input a name.')
+  st.stop()
+
+# Date
+
 date = st.date_input("🗓 Input your date*")
 
 #Blood pressure
 
 blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):*", 0, 200)
+if not blood_pressure:
+  st.warning('Please input a value')
+  st.stop()
 
 # Hypertension
 
 hypertension = st.selectbox("📈 Do you have hypertension?*",
                             ("Yes", "No"))
+
 if hypertension == "Yes":
     hypertension = 1
 elif hypertension == "No":
@@ -128,6 +140,17 @@ urobilinogen = image_select(use_container_width=False,
     images=[u_01, u_1, u_2, u_4, u_8],
     captions=["0.1", "1(16)", "2(33)", "4(66)", "8(131)"]
 )
+
+if urobilinogen == u_01:
+    urobilinogen = 0.1
+elif urobilinogen == u_1:
+    urobilinogen = 1
+elif urobilinogen == u_2:
+    urobilinogen = 2
+elif urobilinogen == u_4:
+    urobilinogen = 4
+else:
+    urobilinogen = 8
 
 # Sugar
 
@@ -355,9 +378,23 @@ creatinine = image_select(use_container_width=False,
     captions=["10(0.1)0.9", "50(0.5)4.4", "100(1.0)8.8", "200(2.0)17.7", "300(3.0)26.5"]
 )
 
+if creatinine == c_10:
+    creatinine = 10
+elif creatinine == c_50:
+    creatinine = 50
+elif creatinine == c_100:
+    creatinine = 100
+elif creatinine == c_200:
+    creatinine = 200
+else:
+    creatinine = 300
+
 # Submitting
 
-if st.button("Submit your results"):
+st.markdown("**Once you're finished, don't forget to click on the Submit button!**")
+st.write("👇👇👇")
+
+if st.button("**SUBMIT YOUR RESULTS**"):
 
     st.success("Results submitted succesfully", icon="✅")
     insertSQL = f"""INSERT INTO samples
