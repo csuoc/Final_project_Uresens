@@ -486,3 +486,23 @@ st.write("""
         Ingredients: picric acid 0.3 mg, borax 20 mg
         """
         )
+
+# Limitations
+
+colored_header(
+    label="Limitations",
+    description="",
+    color_name="red-70"
+)
+st.write("**Urobilinogen**: The absence of urobilinogen in the sample cannot be determined. The test area reacts with interfering substances known to react with the Ehrlich reagent, such as p-aminosalicylic acid. Drugs containing azo-ganstrisin may give a masking golden colour. The test is not a reliable method for the detection of porphobilinogen.")
+st.write("**Glucose**: a high Specific Gravity (> 1.020) with high pH urine and ascorbic acid (greater than 40 mg/dL) may give a false negative for samples containing a small amount of glucose (100 mg/dL). Reactivity may be influenced by urine EG and temperature.")
+st.write("**Bilirubin**: Drug metabolites, such as pyridium and selenium, which give a colour at low pH, can cause false positives. Indoxyl sulphate (indicate) can produce a yellow-orange to red colour response, which can interfere with the interpretation of negative or positive bilirubin readings. Ascorbic acid (>30 mg/dL) may cause false negative results.")
+st.write("**Ketones**: Positive results (trace or less) may occur with highly pigmented urine samples or samples containing large amounts of levodopa metabolites. Some urines with high SG and low pH may give a false positive result. Phenolsulfonphthalein may cause false positives.")
+st.write("**Blood**: Elevated specific gravity or protein in the urine may reduce the reactivity of the blood test portion. Microbial peroxidase associated with urinary tract infection may cause false positive results. Ascorbic acid concentrations (>30 mg/dL) may cause false negatives in the low blood level.")
+st.write("**Specific gravity (SG)**: Highly buffered alkaline urine may cause decreased results, while highly buffered acidic urine may cause slightly elevated results.")
+st.write("**Proteins**: False positive results can be found in strongly basic urine (pH 9). Interpretation of results is also difficult in cloudy urine samples.")
+st.write("**Nitrite**: Ascorbic acid (> 30 mg/dL) may cause false negative results with low levels of nitrite content (<0.03 mg) in the urine. A negative result does not always mean that the patient is free of bacteriuria. Pink spots or pink borders should not be interpreted as a positive result. A negative result may occur when urinary tract infections are caused by organisms that do not contain nitrate reductase, when urine has not been retained in the bladder long enough (four hours or more) for reduction of nitrate to nitrite, or when nitrate in the diet is absent.")
+st.write("**Leukocytes**: The test result may not always be consistent with the number of leukocyte cells from a microscopic examination. High glucose concentration, high specific gravity, high albumin level, high formaldehyde concentration or the presence of blood may cause decreased test results. False positive results may occasionally be due to contamination of the sample by vaginal discharge.")
+st.write("**Microalbumin**: The following substances may cause false positive results: a large amount of hemoglobin (> 5 mg/dL), visibly bloody urine, highly alkaline urine (pH > 8), or disinfectant including quaternary ammonium compound.")
+st.write("**Creatinine**: dark brown urine may affect the results. Substances that cause abnormal urine colour, such as medications containing azo dyes, nitrofurantoin and riboflavin, may affect the results.")
+st.write("**Microalbumin to creatinine ratio**: A low microalbumin result (10 mg/L) in combination with strongly dilute urine (creatinine result of 10 mg/dL) may indicate a microalbumin concentration below the limit of sensitivity. In this case, consider testing a new sample, preferably a first collection in the morning, in order to have more confidence in the result.")

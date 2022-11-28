@@ -34,10 +34,12 @@ def run_query(query):
 ########## Body ##########
 
 colored_header(
-    label="Your medical records",
+    label="Your results",
     description="Insert",
     color_name="red-70"
 )
+
+st.markdown("**❗ As with all laboratory tests, diagnostic or therapeutic decisions should not be based on a single method result. Substances that cause abnormal urine colour may affect the readability of the test pads on urine test strips.**")
 
 ########## Plots ##########
 
@@ -80,6 +82,15 @@ num_days = (max_date - min_date).days
 if num_days < MAX_DAYS_WITH_DTICK_FORMAT:
     fig.update_xaxes(dtick=86400000)
 st.plotly_chart(fig)
+
+st.subheader("How to interpret the results")
+
+st.write("**Urobilinogen**: The absence of urobilinogen in the sample cannot be determined. The test area reacts with interfering substances known to react with the Ehrlich reagent, such as p-aminosalicylic acid. Drugs containing azo-ganstrisin may give a masking golden colour. The test is not a reliable method for the detection of porphobilinogen.")
+st.write("**Glucose**: a high Specific Gravity (> 1.020) with high pH urine and ascorbic acid (greater than 40 mg/dL) may give a false negative for samples containing a small amount of glucose (100 mg/dL). Reactivity may be influenced by urine EG and temperature.")
+
+
+
+
 
 ########## Prediction ##########
 
