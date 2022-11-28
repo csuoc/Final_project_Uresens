@@ -19,12 +19,3 @@ colored_header(
     description="This is a description",
     color_name="violet-70",
 )
-
-number = 0
-
-if number == 1:
-    st.write("Carles, you probably have Chronic Kidney Disease")
-elif number == 0:
-    st.write("The model predicts you don't have Chronic Kidney Disease")
-else:
-    st.error("Something went wrong, please try again later")

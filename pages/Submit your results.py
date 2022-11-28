@@ -310,11 +310,41 @@ else:
     albumin = 5
 
 
+# Microalbumin
 
+m_1 = resize_images(image_path="./images/Microalbumin/1.jpg", width=1, height=1)
+m_3 = resize_images(image_path="./images/Microalbumin/3.jpg", width=1, height=1)
+m_8 = resize_images(image_path="./images/Microalbumin/8.jpg", width=1, height=1)
+m_15 = resize_images(image_path="./images/Microalbumin/15.jpg", width=1, height=1)
 
+microalbumin = image_select(use_container_width=False,
+    label="🤏🥚 Select your MICROALBUMIN results:",
+    images=[m_1, m_3, m_8, m_15],
+    captions=["1(10)", "3(30)", "8(80)", "15(150)"]
+)
 
+if microalbumin == m_1:
+    microalbumin = 1
+elif microalbumin == m_3:
+    microalbumin = 3
+elif microalbumin == m_8:
+    microalbumin = 8
+else:
+    microalbumin = 15
 
+# Creatinine
 
+c_10 = resize_images(image_path="./images/Creatinine/10.jpg", width=1, height=1)
+c_50 = resize_images(image_path="./images/Creatinine/50.jpg", width=1, height=1)
+c_100 = resize_images(image_path="./images/Creatinine/100.jpg", width=1, height=1)
+c_200 = resize_images(image_path="./images/Creatinine/200.jpg", width=1, height=1)
+c_300 = resize_images(image_path="./images/Creatinine/300.jpg", width=1, height=1)
+
+creatinine = image_select(use_container_width=False,
+    label="💪 Select your CREATININE results:",
+    images=[c_10, c_50, c_100, c_200, c_300],
+    captions=["10(0.1)0.9", "50(0.5)4.4", "100(1.0)8.8", "200(2.0)17.7", "300(3.0)26.5"]
+)
 
 # Submitting
 
@@ -323,10 +353,10 @@ if st.button("Submit your results"):
     st.success("Results submitted succesfully", icon="✅")
     insertSQL = f"""INSERT INTO samples
      (patientid, date, blood_pressure, albumin, sugar, erythrocytes, hypertension, leucocytes, nitrite, 
-     urobilinogen, ph, gravity, ketones, bilirubin) 
+     urobilinogen, ph, gravity, ketones, bilirubin, microalbumin, creatinine) 
         VALUES ('{patientid}', '{date}', '{blood_pressure}', '{albumin}', '{sugar}', '{erythrocytes}', 
                 '{hypertension}', '{leucocytes}', '{nitrite}', '{urobilinogen}', '{ph}', '{gravity}',
-                '{bilirubin}');
+                '{ketones}', '{bilirubin}', '{microalbumin}', '{creatinine}');
     """
     run_query(insertSQL)
 
