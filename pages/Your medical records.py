@@ -124,6 +124,7 @@ if int(data[1][0]) == 1:
     st.write(f"{patientid}, you probably have Chronic Kidney Disease")
 elif int(data[1][0]) == 0:
     st.write("The model predicts you don't have Chronic Kidney Disease")
+    st.balloons()
 else:
     st.error("Something went wrong, please try again later")
 

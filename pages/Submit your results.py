@@ -41,21 +41,30 @@ colored_header(
     color_name="red-70"
 )
 
+st.write("""**Urine strips** are test strips for in vitro diagnostic use only and for the rapid testing of different compounds in urine, such
+        as **Leucocytes, Nitrites, Proteins, pH, Blood, Specific gravity, Ketones, Bilirubin, Glucose, Microalbumin and Creatinin**. 
+        The test result can provide information on the status of carbohydrate metabolism, kidney and liver function, acid-base balance 
+        and urinary tract infections. They are interpreted by comparing each colour of the strip with the included colour chart. 
+        The strips can be read visually or instrumentally, using professional urine chemistry analysers.
+        """
+        )
+
 img = mpimg.imread("./images/urinetest.jpg")
 st.image(img, use_column_width=True)
 
+st.write("Please fill the following form. Input the required parameters marked with a *. Then select the resulting color of each component in your sample")
 ########## Insert into MySQL ##########
 
-patientid = st.text_input("🧍‍♂️🧍‍♀️ Enter your name")
-date = st.date_input("🗓 Input your date")
+patientid = st.text_input("🧍‍♂️🧍‍♀️ Enter your name*")
+date = st.date_input("🗓 Input your date*")
 
 #Blood pressure
 
-blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):", 0, 200)
+blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):*", 0, 200)
 
 # Hypertension
 
-hypertension = st.selectbox("📈 Do you have hypertension?",
+hypertension = st.selectbox("📈 Do you have hypertension?*",
                             ("Yes", "No"))
 if hypertension == "Yes":
     hypertension = 1
@@ -360,3 +369,83 @@ if st.button("Submit your results"):
     """
     run_query(insertSQL)
 
+# Information
+
+colored_header(
+    label="Technical information about the procedures and components",
+    description="",
+    color_name="red-70"
+)
+
+st.write("""
+        **Urobilinogen**: The test is based on the Ehrlich reaction. The colour changes from light orange-pink to dark pink.
+        Ingredients: 4-Methoxy-benzene diazonium 2,9 mg.
+        """
+        )
+
+st.write("""
+        **Glucose**: Glucose oxidase catalyses the oxidation of glucose to form hydrogen peroxide. The hydrogen peroxide thus formed then oxidises a chromogen on the reactive pad by the action of peroxidase.
+        Ingredients: Glucose oxidase 430U, Peroxidase 200U, Potassium iodide 12 mg
+        """
+        )
+
+st.write("""
+        **Bilirubin**: Azo coupling reaction of bilirubin with a diazonium salt in an acid medium to form an azo dye. The colour changes from light brown to beige or light pink.
+        Ingredients: Sodium nitrite 0.733 mg, 2,4-dizionium dichlorobezene 2.3 mg, Sulfosalicílic acid 25 mg.
+        """
+        )
+
+st.write("""
+        **Ketones**: Legal test - nitroprusside reaction. Acetoacetic acid in an alkaline medium reacts with nitroferricanide to produce a beige to purple colour change.
+        Ingredients: Sodium nitroprusside 23.0 mg.
+        """
+        )
+
+st.write("""
+        **pH**: Dual indicator system. The indicator methyl red and bromothymol blue are used to give distinct colour changes from orange to green to blue (pH 5.0 to 9.0).
+        Ingredients: Methyl red 0.05 mg, Bromothymol blue 0.5 mg
+        """
+        )
+
+st.write("""
+        **Blood**: The test is based on the pseudo-peroxidase activity of the heme fraction of haemoglobin and myoglobin. The chromogen is oxidised by a hydroperoxide in the presence of heme and changes colour from yellow to blue.
+        Ingredients: Coumene hydroperoxide 12 mg, o-Tolidine 0.5 mg
+        """
+        )
+
+st.write("""
+        **Specific gravity (SG)**: Ionic solutes in urine cause the release of protons from a polyelectrolyte. As the protons are released the pH decreases and produces a colour change in bromothymol blue from green-blue to yellow-green.
+        Ingredients: Bromothymol blue 0.5 mg
+        Poly vinyl ether - ALT anhydrous maleic acid 140.5 mg
+        """
+        )
+
+st.write("""
+        **Proteins**: Protein "indicator error". When the pH is kept constant by means of a buffer, the indicator dyes H+ ions due to the presence of the protein and the colour changes from yellow (or yellow-green) to blue-green.
+        Ingredients: Tetrabromophenol blue 0.34 mg
+        """
+        )
+
+st.write("""
+        **Nitrite**: The test is based on the diazotization reaction of nitrite with an aromatic amine to produce a diazionium salt. This is followed by an azo coupling reaction of this diazonium salt with an aromatic compound on the reagent pad. The azo dye produced causes a colour change from white to pink.
+        Ingredients: p-arsan lico acid 4.5 mg
+        """
+        )
+
+st.write("""
+        **Leukocytes**: This test pad contains a deindoxyl ester and diazonium salt. This is followed by an azo coupling reaction of the aromatic amine formed by leucocyte esterase with a diazonium salt on the reagent pad. The azo dye produced causes a colour change from beige to violet.
+        Ingredients: Induced amino indole acid ether 1.3 mg
+        """
+        )
+
+st.write("""
+        **Microalbumin**: This test is based on the binding of the dye with sulphonaphthalein dye. At a constant pH, the albumin binds with the sulphonaphthalein dye to develop a blue colour. The resulting colour varies from pale green to aquamarine blue.
+        Ingredients: 2,6-dichloro indophenol sodium salt 0.8 mg
+        """
+        )
+
+st.write("""
+        **Creatinine**: This test is based on the reaction of creatinine with a dye/metal complex. In alkaline conditions, creatinine reacts with a dye-metal complex to form a purplish-brown complex.
+        Ingredients: picric acid 0.3 mg, borax 20 mg
+        """
+        )
