@@ -8,4 +8,4 @@ imutils==0.5.4
 plotly==5.11.0
 streamlit-extras==0.2.4
 streamlit-image-select==0.5.1
-install-jdk==0.3.0
+default-jre
