@@ -14,7 +14,7 @@ import h2o
 ########## Head ##########
 
 st.set_page_config(page_title="Medical records", page_icon="📜")
-add_logo("https://i.ibb.co/TTF105V/logo2.png")
+add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
 add_text_sidebar()
 
 ########## Initialize connection ##########
@@ -35,10 +35,11 @@ def run_query(query):
 
 colored_header(
     label="Your results",
-    description="Insert",
+    description="",
     color_name="red-70"
 )
 
+st.image("./images/results.jpg")
 st.markdown("**❗ As with all laboratory tests, diagnostic or therapeutic decisions should not be based on a single method result. Substances that cause abnormal urine colour may affect the readability of the test pads on urine test strips.**")
 
 ########## Plots ##########

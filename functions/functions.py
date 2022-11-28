@@ -39,7 +39,7 @@ def add_text_sidebar():
         """
         <style>
             [data-testid="stSidebarNav"]::before {
-                content: "UreSens App";
+                content: "UreSens Labs";
                 margin-left: 20px;
                 margin-top: 20px;
                 font-size: 30px;
