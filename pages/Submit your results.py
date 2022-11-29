@@ -394,10 +394,10 @@ if st.button("**SUBMIT YOUR RESULTS**"):
     st.success("Results submitted succesfully", icon="✅")
     insertSQL = f"""INSERT INTO samples
      (patientid, date, blood_pressure, albumin, sugar, erythrocytes, hypertension, leucocytes, nitrite, 
-     urobilinogen, ph, gravity, ketones, bilirubin, microalbumin, creatinine) 
+     urobilinogen, ph, gravity, ketones, bilirubin, microalbumin, creatinine, micro_creat_ratio) 
         VALUES ('{patientid}', '{date}', '{blood_pressure}', '{albumin}', '{sugar}', '{erythrocytes}', 
                 '{hypertension}', '{leucocytes}', '{nitrite}', '{urobilinogen}', '{ph}', '{gravity}',
-                '{ketones}', '{bilirubin}', '{microalbumin}', '{creatinine}');
+                '{ketones}', '{bilirubin}', '{microalbumin}', '{creatinine}', '{microalbumin/creatinine}');
     """
     run_query(insertSQL)
 
