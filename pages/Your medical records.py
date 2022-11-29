@@ -148,9 +148,7 @@ st.markdown("""<p style='color:red'><strong>Please take into account that althou
             """, 
             unsafe_allow_html=True)
 
-
-
-st.image("./images/prediction.gif")
+st.image("https://i.ibb.co/MRF0LYV/prediction.gif")
 
 latest_iteration = st.empty()
 bar = st.progress(0)
