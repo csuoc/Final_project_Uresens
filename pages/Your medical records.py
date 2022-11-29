@@ -91,7 +91,7 @@ st.subheader("💡 Expected results:")
 if y_axis_val == "Urobilinogen mg/dL":
     st.write("The normal range of urobilinogen is 0.1 to 1.0 Ehrlich units/dL. If results exceed 2.0 mg/ dL, the patient and urine sample should be further evaluated.")
 elif y_axis_val == "Blood Pressure mm/Hg diastolic":
-    st.image("./images/bloodpressure.jpg")
+    st.image("./images/bloodpressure.JPG")
 elif y_axis_val == "Sugar (0-5)":
     st.write("Small amounts of glucose are normally excreted by the kidney. Concentrations of 100 mg/dL **(> LEVEL 1)** may be considered abnormal if found repeatedly.")
 elif y_axis_val == "Bilirubin":
