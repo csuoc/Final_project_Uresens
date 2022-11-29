@@ -60,7 +60,7 @@ result = pd.read_sql_query(getresults, con=conn)
 # Convert as dataframe
 df = pd.DataFrame(result)
 # Rename columns
-new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk", 
+new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes Ok/NOk", 
           "Leucocytes WBC/µL", "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL", "Bilirubin",
           "Microalbumin mg/dL", "Creatinine mg/dL"
         ]
@@ -68,7 +68,7 @@ for i, j in zip(df.columns, new_name):
     rename_columns(df, i, j)
 # Plot
 y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", 
-                          "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk", "Leucocytes WBC/µL", 
+                          "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes Ok/NOk", "Leucocytes WBC/µL", 
                           "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL",
                           "Bilirubin", "Microalbumin mg/dL", "Creatinine mg/dL"])
 fig = px.line(df, x=df["Date"], y=y_axis_val, markers=True)
@@ -130,7 +130,7 @@ info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), MAX(erythrocyte
 sqlex = pd.read_sql_query(info, con=conn)
 df2 = pd.DataFrame(sqlex)
 # Rename columns
-new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes levels Ok/NOk", "Hypertension Yes/No"]
+new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes Ok/NOk", "Hypertension Yes/No"]
 for i, j in zip(df2.columns, new_name):
     rename_columns(df2, i, j)
 
