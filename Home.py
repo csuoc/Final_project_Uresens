@@ -15,13 +15,14 @@ st.set_page_config(
 add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
 add_text_sidebar()
 
+st.write("#")
+
 colored_header(
     label="WELCOME TO URESENS LABS",
     description="",
     color_name="red-70"
 )
 
-st.write("#")
 
 ########## Body ##########
 
