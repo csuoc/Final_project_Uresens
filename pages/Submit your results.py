@@ -10,7 +10,6 @@ import matplotlib.image as mpimg
 from streamlit_image_select import image_select
 from streamlit_extras.no_default_selectbox import selectbox
 
-
 ########## Head ##########
 
 st.set_page_config(page_title="Submit your results", page_icon="📮")
@@ -50,7 +49,7 @@ st.write("""**Urine strips** are test strips for in vitro diagnostic use only an
         """
         )
 
-img = mpimg.imread("./images/urinetest.jpg")
+img = mpimg.imread("./images/submitresults.jpg")
 st.image(img, use_column_width=True)
 
 st.write('**Please fill the following form. Input the required parameters marked with a "*". Then select the resulting color of each component in your sample**')

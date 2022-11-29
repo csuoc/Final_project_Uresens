@@ -60,14 +60,14 @@ card(
 card(
     title="Instructions",
     text="How to use the urine strips?",
-    image="",
+    image="https://i.ibb.co/FVSTQR5/urinetest.jpg",
     url="/Instructions",
 )
 
 card(
     title="Submit your results",
     text="Take an urine test and upload here your results",
-    image="https://i.ibb.co/FVSTQR5/urinetest.jpg",
+    image="https://i.ibb.co/BwPc4QK/submitresults.jpg",
     url="/Submit_your_results",
 )
 
