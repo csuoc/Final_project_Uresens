@@ -31,7 +31,7 @@ st.markdown("<p style='text-align: center;'>Take an urine test and upload the re
 #st.markdown('<center><img src="https://i.ibb.co/bLkxJs6/home2.gif" width=150></center>', unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>👌 Non-invasive 👌</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>Needles should only be used for crochet. Because we care about your fears.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>No needles nor blood involved. Because we care about your fears.</p>", unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>🎯 Reliable 🎯</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>We have developed an Artificial Intelligence model with 99% accuracy to diagnose early stages of Chronic Kidney Disease.</p>", unsafe_allow_html=True)
