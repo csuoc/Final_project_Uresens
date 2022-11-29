@@ -402,6 +402,8 @@ if st.button("**SUBMIT YOUR RESULTS**"):
     run_query(insertSQL)
 
 # Information
+st.write("\n")
+st.write("\n")
 
 colored_header(
     label="📃 Technical information about the procedures and components",
@@ -483,6 +485,7 @@ st.write("""
         )
 
 # Limitations
+st.write("\n")
 
 colored_header(
     label="💡 Limitations",

@@ -72,7 +72,6 @@ y_axis_val = st.selectbox("Select variable to get all the details", options=["Bl
                           "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL",
                           "Bilirubin", "Microalbumin mg/dL", "Creatinine mg/dL", "Microalbumin/Creatinine ratio (mg/g)"])
 fig = px.line(df, x=df["Date"], y=y_axis_val, markers=True)
-#fig.update_xaxes(tickformat="%b %d\n%Y")
 
 MAX_DAYS_WITH_DTICK_FORMAT = 10 # you can change this!
 # compute number of days in date range of date column
@@ -120,12 +119,16 @@ elif y_axis_val =="Microalbumin/Creatinine ratio (mg/g)":
     st.image("./images/ratio.jpg")
 
 ########## Prediction ##########
+st.write("\n")
+st.write("\n")
 
 colored_header(
     label="📋 Early diagnostic of Chronic Kidney Disease (CKD)",
-    description="Insert",
+    description="Discover how Machine Learning helps diagnose CKD",
     color_name="red-70"
 )
+
+st.write("**UreSens** presents the definitive tool help you detect early stages of Chronic Kidney Disease")
 
 # Retrieve from MySQL the required parameters
 info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), MAX(erythrocytes), MAX(hypertension) from samples
@@ -148,8 +151,6 @@ def prediction(dataframe):
     my_model = h2o.load_model("./models/GBM_grid_1_AutoML_1_20221127_175518_model_1")
     predictions = my_model.predict(test)
     return predictions
-
-st.write("Based on your current values, the prediction is")
 
 predictions=prediction(df2)
 data = h2o.as_list(predictions, use_pandas=False)
