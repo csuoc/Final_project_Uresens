@@ -7,12 +7,12 @@ import matplotlib.image as mpimg
 
 ########## Head ##########
 
-st.set_page_config(page_title="Chronic Kidney Disease", page_icon="🩺")
+st.set_page_config(page_title="Chronic Kidney Disease", page_icon="🤒")
 add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
 add_text_sidebar()
 
 colored_header(
-    label="What is Chronic Kidney Disease?",
+    label="❓ What is Chronic Kidney Disease?",
     description="Chronic kidney disease (CKD) is a long-term condition where the kidneys don't work as well as they should",
     color_name="red-70"
 )
@@ -39,7 +39,7 @@ st.video("https://www.youtube.com/watch?v=za78Uqroios&t=104s&ab_channel=National
 ########## Symptoms ##########
 
 colored_header(
-    label="Symptoms",
+    label="❗ Symptoms",
     description="Signs and symptoms of chronic kidney disease develop over time if kidney damage progresses slowly.",
     color_name="red-70"
 )
@@ -76,7 +76,7 @@ st.write("""
 ########## Causes ##########
 
 colored_header(
-    label="Causes",
+    label="🤔 Causes",
     description="Chronic kidney disease occurs when a disease or condition impairs kidney function, causing kidney damage to worsen over several months or years.",
     color_name="red-70"
 )
@@ -98,7 +98,7 @@ st.write("""
 ########## Risk factors ##########
 
 colored_header(
-    label="Risk factors",
+    label="📊 Risk factors",
     description="",
     color_name="red-70"
 )
@@ -121,7 +121,7 @@ st.write("""
 ########## Complications ##########
 
 colored_header(
-    label="Complications",
+    label="🩹 Complications",
     description="",
     color_name="red-70"
 )
@@ -145,7 +145,7 @@ st.write("""
 ########## Prevention ##########
 
 colored_header(
-    label="Prevention",
+    label="💡 Prevention",
     description="",
     color_name="red-70"
 )
@@ -162,7 +162,7 @@ st.write("""
 ########## Tests for CKD ##########
 
 colored_header(
-    label="Tests for CKD",
+    label="🔬 Tests for CKD",
     description="",
     color_name="red-70"
 )
@@ -199,7 +199,7 @@ st.write("""
 ########## Test results ##########
 
 colored_header(
-    label="Test results and stages of CKD",
+    label="📚 Test results and stages of CKD",
     description="Your test results can be used to determine how damaged your kidneys are, known as the stage of CKD.",
     color_name="red-70"
 )
@@ -228,7 +228,7 @@ st.write("For both eGFR and ACR, a higher stage indicates more severe kidney dis
 ########## Overview ##########
 
 colored_header(
-    label="Overview",
+    label="📜 Overview",
     description="",
     color_name="red-70"
 )
@@ -244,7 +244,7 @@ st.write("""
 ########## Sources ##########
 
 colored_header(
-    label="Sources",
+    label="➡ Sources",
     description="",
     color_name="red-70"
 )

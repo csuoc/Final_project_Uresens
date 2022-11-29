@@ -49,8 +49,7 @@ card(
     title="What is CKD?",
     text="Symptoms, causes and treatment",
     image="https://i.ibb.co/kXHVk0J/CKD1.jpg",
-    url = "/Chronic_Kidney_Disease" ,
-    key="_self"
+    url = "/Chronic_Kidney_Disease"
 )
 
 card(
