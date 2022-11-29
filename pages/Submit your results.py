@@ -49,7 +49,7 @@ st.write("""**Urine strips** are test strips for in vitro diagnostic use only an
         """
         )
 
-img = mpimg.imread("./images/submitresults.jpg")
+img = mpimg.imread("./images/submitresults.JPG")
 st.image(img, use_column_width=True)
 
 st.write('**Please fill the following form. Input the required parameters marked with a "*". Then select the resulting color of each component in your sample**')
