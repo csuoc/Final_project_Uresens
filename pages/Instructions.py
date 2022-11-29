@@ -37,7 +37,7 @@ st.video("./videos/introsample.mp4")
 
 #Visual test
 
-st.subheader("Visual test procedure")
+st.subheader("Procedure to perform an urine test")
 st.write("""
         The procedure must be followed exactly to achieve reliable results. Do not compare the strips with the 
         colour chart before dipping the strip into the urine.
@@ -52,3 +52,9 @@ st.write("""
         """
         )
 st.video("./videos/2-reading.mp4")
+
+st.write("""
+        4. **Input data**
+        """
+        )
+st.video("./videos/3-howtosubmitdata.webm")
