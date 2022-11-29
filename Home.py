@@ -10,7 +10,6 @@ from streamlit_card import card
 st.set_page_config(
     page_title="UreSens Labs",
     page_icon="💊",
-    initial_sidebar_state="expanded",
 )
 
 add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
