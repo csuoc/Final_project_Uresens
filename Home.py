@@ -21,6 +21,8 @@ colored_header(
     color_name="red-70"
 )
 
+st.write("#")
+
 ########## Body ##########
 
 st.markdown("<h1 style='text-align: center;'>The next generation of kidney diagnostics</h1>", unsafe_allow_html=True)
@@ -50,7 +52,7 @@ card(
     text="Symptoms, causes and treatment",
     image="https://i.ibb.co/kXHVk0J/CKD1.jpg",
     url = "/Chronic_Kidney_Disease"
-)
+)   
 
 card(
     title="Instructions",
