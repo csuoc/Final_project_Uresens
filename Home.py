@@ -38,6 +38,9 @@ st.markdown("<p style='text-align: center;'>We have developed an Artificial Inte
 st.markdown("<h1 style='text-align: center;'>✅ Easy to use ✅</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>Computer, laptop or mobile phone. Finally, technology and health on the palm of your hand.</p>", unsafe_allow_html=True)
 
+
+st.markdown('<center><img src="https://i.ibb.co/zZysCK2/home2.gif"></center>', unsafe_allow_html=True)
+
 ########## Cards ##########
 
 st.markdown("<h1 style='text-align: center;'>Check out what can we offer for you</h1>", unsafe_allow_html=True)
