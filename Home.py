@@ -14,7 +14,7 @@ st.set_page_config(
 
 add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
 add_text_sidebar()
-
+st.write('<style>div.block-container{padding-top:0rem;}</style>', unsafe_allow_html=True)
 st.write("#")
 
 colored_header(
@@ -22,7 +22,6 @@ colored_header(
     description="",
     color_name="red-70"
 )
-
 
 ########## Body ##########
 
