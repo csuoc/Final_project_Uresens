@@ -52,17 +52,17 @@ st.write("""**Urine strips** are test strips for in vitro diagnostic use only an
 img = mpimg.imread("./images/urinetest.jpg")
 st.image(img, use_column_width=True)
 
-st.write("Please fill the following form. Input the required parameters marked with a *. Then select the resulting color of each component in your sample")
+st.write('**Please fill the following form. Input the required parameters marked with a "*". Then select the resulting color of each component in your sample**')
 
 ########## Insert into MySQL ##########
 
 # Name
 
-patientid = st.text_input("🧍‍♂️🧍‍♀️ Enter your name*")
+patientid = st.text_input("🧍‍♂️🧍‍♀️ Who are you?*")
 
 # Date
 
-date = st.date_input("🗓 Input your date*")
+date = st.date_input("🗓 Input the current date*")
 
 #Blood pressure
 
@@ -70,7 +70,7 @@ blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastoli
 
 # Hypertension
 
-hypertension = st.selectbox("📈 Do you have hypertension?*",
+hypertension = st.selectbox("📈 Have you been diagnosed with hypertension?*",
                             ("Yes", "No"))
 
 if hypertension == "Yes":

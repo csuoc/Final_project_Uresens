@@ -86,7 +86,7 @@ st.plotly_chart(fig)
 
 ########## Expected results##########
 
-st.subheader("Expected results")
+st.subheader("Expected results:")
 
 if y_axis_val == "Urobilinogen mg/dL":
     st.write("The normal range of urobilinogen is 0.1 to 1.0 Ehrlich units/dL. If results exceed 2.0 mg/ dL, the patient and urine sample should be further evaluated.")
@@ -118,7 +118,7 @@ elif y_axis_val == "Creatinine mg/dL":
 ########## Prediction ##########
 
 colored_header(
-    label="Prediction",
+    label="Early diagnostic of Chronic Kidney Disease (CKD)",
     description="Insert",
     color_name="red-70"
 )
