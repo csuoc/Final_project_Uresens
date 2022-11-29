@@ -5,6 +5,7 @@ from functions.functions import add_text_sidebar
 from streamlit_extras.colored_header import colored_header
 from streamlit_card import card
 
+# Head
 
 st.set_page_config(
     page_title="UreSens Labs",
@@ -16,11 +17,30 @@ add_text_sidebar()
 
 colored_header(
     label="WELCOME TO URESENS LABS",
-    description="Chronic kidney disease (CKD) is a long-term condition where the kidneys don't work as well as they should",
+    description="",
     color_name="red-70"
 )
 
+# Body
 
+st.markdown("<h1 style='text-align: center;'>The next generation of kidney diagnostics</h1>", unsafe_allow_html=True)
+st.image("./images/home1.gif", use_column_width=True)
+
+st.markdown("<h1 style='text-align: center;'>Fast</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Take an urine test and upload the results in less than 2 minutes. We'll do the rest for you.</p>", unsafe_allow_html=True)
+
+st.markdown("<h1 style='text-align: center;'>Non-invasive</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>No needles nor blood involved. Because we care about your fears </p>", unsafe_allow_html=True)
+
+st.markdown("<h1 style='text-align: center;'>Reliable</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>We have developed an Artificial Intelligence model with 99% accuracy to diagnose early stages of Chronic Kidney Disease.</p>", unsafe_allow_html=True)
+
+st.markdown("<h1 style='text-align: center;'>Easy to use</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Computer, laptop or mobile phone. Finally, technology and health in the palm of your hand.</p>", unsafe_allow_html=True)
+
+# Cards
+
+st.markdown("<h1 style='text-align: center;'>Check out what can we offer for you</h1>", unsafe_allow_html=True)
 
 card(
     title="What is CKD?",
