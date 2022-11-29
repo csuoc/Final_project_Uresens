@@ -40,8 +40,8 @@ def add_text_sidebar():
         <style>
             [data-testid="stSidebarNav"]::before {
                 content: "UreSens Labs";
-                margin-left: 20px;
-                margin-top: 20px;
+                margin-left: 40px;
+                margin-top: 40px;
                 font-size: 30px;
                 position: relative;
                 top: 80px;
