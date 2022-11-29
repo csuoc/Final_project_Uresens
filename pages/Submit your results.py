@@ -36,7 +36,7 @@ def run_query(query):
 ########## Body ##########
 
 colored_header(
-    label="Submit your results",
+    label="📧 Submit your results",
     description="Only for in vitro diagnostic",
     color_name="red-70"
 )
@@ -404,7 +404,7 @@ if st.button("**SUBMIT YOUR RESULTS**"):
 # Information
 
 colored_header(
-    label="Technical information about the procedures and components",
+    label="📃 Technical information about the procedures and components",
     description="",
     color_name="red-70"
 )
@@ -485,7 +485,7 @@ st.write("""
 # Limitations
 
 colored_header(
-    label="Limitations",
+    label="💡 Limitations",
     description="",
     color_name="red-70"
 )
