@@ -148,7 +148,11 @@ st.markdown("""<p style='color:red'><strong>Please take into account that althou
             """, 
             unsafe_allow_html=True)
 
+st.write("\n")
+st.write("\n")
 st.image("https://i.ibb.co/MRF0LYV/prediction.gif")
+st.write("\n")
+st.write("\n")
 
 latest_iteration = st.empty()
 bar = st.progress(0)
@@ -157,7 +161,6 @@ for i in range(num):
     latest_iteration.text(f"Prediction is being initialized. Please wait {num - i} seconds...")
     bar.progress((110//num)*i)
     time.sleep(1)
-
 
 # Retrieve from MySQL the required parameters
 info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), MAX(erythrocytes), MAX(hypertension) from samples
