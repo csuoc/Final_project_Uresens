@@ -8,6 +8,7 @@ from functions.functions import resize_images
 from streamlit_extras.colored_header import colored_header
 import matplotlib.image as mpimg
 from streamlit_image_select import image_select
+from streamlit_extras.no_default_selectbox import selectbox
 
 
 ########## Head ##########
