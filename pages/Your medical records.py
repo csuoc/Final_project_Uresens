@@ -3,13 +3,13 @@
 import pandas as pd
 import streamlit as st
 import mysql.connector
-
 from streamlit_extras.app_logo import add_logo
 from functions.functions import add_text_sidebar
 from functions.functions import rename_columns
 from streamlit_extras.colored_header import colored_header
 import plotly.express as px
 import h2o
+import time
 
 ########## Head ##########
 
@@ -148,6 +148,19 @@ st.markdown("""<p style='color:red'><strong>Please take into account that althou
             """, 
             unsafe_allow_html=True)
 
+
+
+st.image("./images/prediction.gif")
+
+latest_iteration = st.empty()
+bar = st.progress(0)
+num = 10
+for i in range(num):
+    latest_iteration.text(f"Prediction is being initialized. Please wait {num - i} seconds...")
+    bar.progress((110//num)*i)
+    time.sleep(1)
+
+
 # Retrieve from MySQL the required parameters
 info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), MAX(erythrocytes), MAX(hypertension) from samples
            WHERE patientid="{patientid}";
@@ -174,7 +187,7 @@ predictions=prediction(df2)
 data = h2o.as_list(predictions, use_pandas=False)
 
 if int(data[1][0]) == 1:
-    st.error(f"**{patientid}**, you probably have Chronic Kidney Disease")
+    st.error(f"**{patientid}**, you should probably visit your doctor immediately, we have found indices of Chronic Kidney Disease")
 elif int(data[1][0]) == 0:
     st.success(f"**{patientid}**, the model predicts you probably **DO NOT HAVE** Chronic Kidney Disease 😄")
     #st.balloons()
