@@ -61,7 +61,7 @@ result = pd.read_sql_query(getresults, con=conn)
 # Convert as dataframe
 df = pd.DataFrame(result)
 # Rename columns
-new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes Ok/NOk", 
+new_name=["Date", "Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Glucose (0-5)", "Erythrocytes Ok/NOk", 
           "Leucocytes WBC/µL", "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL", "Bilirubin",
           "Microalbumin mg/dL", "Creatinine mg/dL", "Microalbumin/Creatinine ratio (mg/g)"
         ]
@@ -69,7 +69,7 @@ for i, j in zip(df.columns, new_name):
     rename_columns(df, i, j)
 # Plot
 y_axis_val = st.selectbox("Select variable to get all the details", options=["Blood Pressure mm/Hg diastolic", 
-                          "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes Ok/NOk", "Leucocytes WBC/µL", 
+                          "Albumin (0-5)", "Glucose (0-5)", "Erythrocytes Ok/NOk", "Leucocytes WBC/µL", 
                           "Nitrite", "Urobilinogen mg/dL", "pH", "Specific Gravity", "Ketones mg/dL",
                           "Bilirubin", "Microalbumin mg/dL", "Creatinine mg/dL", "Microalbumin/Creatinine ratio (mg/g)"])
 fig = px.line(df, x=df["Date"], y=y_axis_val, markers=True)
@@ -92,7 +92,7 @@ if y_axis_val == "Urobilinogen mg/dL":
     st.write("The normal range of urobilinogen is 0.1 to 1.0 Ehrlich units/dL. If results exceed 2.0 mg/ dL, the patient and urine sample should be further evaluated.")
 elif y_axis_val == "Blood Pressure mm/Hg diastolic":
     st.image("./images/bloodpressure.JPG")
-elif y_axis_val == "Sugar (0-5)":
+elif y_axis_val == "Glucose (0-5)":
     st.write("Small amounts of glucose are normally excreted by the kidney. Concentrations of 100 mg/dL **(> LEVEL 1)** may be considered abnormal if found repeatedly.")
 elif y_axis_val == "Bilirubin":
     st.write("Bilirubin is normally not detectable in urine, even by the most sensitive methods. Only small amounts of bilirubin are already sufficiently abnormal to require further investigation.")
@@ -129,7 +129,24 @@ colored_header(
     color_name="red-70"
 )
 
-st.write("**UreSens** presents the definitive tool help you detect early stages of Chronic Kidney Disease")
+# General disclaimer
+
+st.write("""**UreSens** presents the definitive tool help you detect early stages of Chronic Kidney Disease. 
+        Our calculator has been trained to detect possible cases of CKD with the following parameters:
+        """)
+st.write("""
+        - Average blood pressure
+        - Average levels of proteins (albumin)
+        - Average levels of glucose
+        - Average levels of red cells/blood
+        - Average levels of hypertension
+        """)
+
+st.markdown("""<p style='color:red'><strong>Please take into account that although the model predicts CKD, 
+            it's not a substitute of a professional clinical diagnostic. This tool is still under developement and 
+            it has not been cross-validated with real patients yet.</strong></p>
+            """, 
+            unsafe_allow_html=True)
 
 # Retrieve from MySQL the required parameters
 info = f"""SELECT AVG(blood_pressure), AVG(albumin), AVG(sugar), MAX(erythrocytes), MAX(hypertension) from samples
@@ -157,9 +174,9 @@ predictions=prediction(df2)
 data = h2o.as_list(predictions, use_pandas=False)
 
 if int(data[1][0]) == 1:
-    st.write(f"{patientid}, you probably have Chronic Kidney Disease")
+    st.error(f"**{patientid}**, you probably have Chronic Kidney Disease")
 elif int(data[1][0]) == 0:
-    st.write("The model predicts you don't have Chronic Kidney Disease")
+    st.success(f"**{patientid}**, the model predicts you probably **DO NOT HAVE** Chronic Kidney Disease 😄")
     #st.balloons()
 else:
     st.error("Something went wrong, please try again later")
