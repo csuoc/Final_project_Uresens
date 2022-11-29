@@ -15,7 +15,7 @@ from streamlit_image_select import image_select
 st.set_page_config(page_title="Submit your results", page_icon="📮")
 add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
 add_text_sidebar()
-
+st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 
 ########## Initialize connection ##########
 

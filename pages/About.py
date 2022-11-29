@@ -9,14 +9,15 @@ from PIL import Image
 st.set_page_config(page_title="About", page_icon="ℹ")
 add_logo("https://i.ibb.co/kcSSdhP/logo2.png")
 add_text_sidebar()
-
-# Body
+st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 
 colored_header(
-    label="Hello! My name is Carles Sunyol",
+    label="Hello!",
     description="",
     color_name="red-70"
 )
+
+# Body
 
 img = Image.open("./images/Carles.jpg")
 
