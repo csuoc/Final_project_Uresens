@@ -98,8 +98,8 @@ elif y_axis_val == "Ketones mg/dL":
     st.write("Ketone bodies should not be detected in normal urine samples with this reagent.")
 elif y_axis_val == "pH":
     st.write("Urine pH values generally range from 5 to 9.")
-elif y_axis_val == "Erythrocytes levels Ok/NOk":
-    st.write("Normally, haemoglobin is not detectable in urine (0.010 mg/dL; 3 red blood cells/µL). When haemoglobin appears in the urine, it indicates kidney disease or a urinary tract disorder. Blood can often be found in the urine of menstruating women.")
+elif y_axis_val == "Erythrocytes Ok/NOk":
+    st.write("Normally, hemoglobin is not detectable in urine (0.010 mg/dL; 3 red blood cells/µL). When hemoglobin appears in the urine, it indicates kidney disease or a urinary tract disorder. Blood can often be found in the urine of menstruating women.")
 elif y_axis_val == "Specific Gravity":
     st.write("Normal specific gravity in urine ranges from 1.001 to 1.035.")
 elif y_axis_val == "Albumin (0-5)":
