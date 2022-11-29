@@ -28,7 +28,7 @@ st.image("./images/home1.gif", use_column_width=True)
 
 st.markdown("<h1 style='text-align: center;'>🏃 Fast 🏃‍♀️</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>Take an urine test and upload the results in less than 2 minutes. We'll do the rest for you.</p>", unsafe_allow_html=True)
-st.markdown('<center><img src="https://i.ibb.co/bLkxJs6/home2.gif" width=150></center>', unsafe_allow_html=True)
+#st.markdown('<center><img src="https://i.ibb.co/bLkxJs6/home2.gif" width=150></center>', unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>👌 Non-invasive 👌</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>Needles should only be used for crochet. Because we care about your fears.</p>", unsafe_allow_html=True)
