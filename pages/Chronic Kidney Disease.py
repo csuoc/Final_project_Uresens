@@ -88,12 +88,12 @@ st.write("""
         - Type 1 or type 2 diabetes
         - High blood pressure
         - High coloresterol
-        - Glomerulonephritis (gloe-mer-u-low-nuh-FRY-tis), an inflammation of the kidney's filtering units (glomeruli)
-        - Interstitial nephritis (in-tur-STISH-ul nuh-FRY-tis), an inflammation of the kidney's tubules and surrounding structures
+        - Glomerulonephritis, an inflammation of the kidney's filtering units (glomeruli)
+        - Interstitial nephritis, an inflammation of the kidney's tubules and surrounding structures
         - Polycystic kidney disease or other inherited kidney diseases
         - Prolonged obstruction of the urinary tract, from conditions such as enlarged prostate, kidney stones and some cancers
-        - Vesicoureteral (ves-ih-koe-yoo-REE-tur-ul) reflux, a condition that causes urine to back up into your kidneys
-        - Recurrent kidney infection, also called pyelonephritis (pie-uh-low-nuh-FRY-tis)
+        - Vesicoureteral reflux, a condition that causes urine to back up into your kidneys
+        - Recurrent kidney infection, also called pyelonephritis
         """)
 
 ########## Risk factors ##########

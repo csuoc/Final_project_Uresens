@@ -50,6 +50,7 @@ st.write("\n")
 
 st.markdown("<h1 style='text-align: center;'>Check out what can we offer for you</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>👇👇👇</h1>", unsafe_allow_html=True)
+
 card(
     title="What is CKD?",
     text="Symptoms, causes and treatment",
@@ -84,4 +85,5 @@ card(
     image="https://i.ibb.co/G9TQPn0/Carles.jpg",
     url="/About",
 )
+
 st.markdown('<center><img src="https://i.ibb.co/kcSSdhP/logo2.png"></center>', unsafe_allow_html=True)

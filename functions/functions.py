@@ -92,4 +92,3 @@ def check_password():
     else:
         # Password correct.
         return True
-
