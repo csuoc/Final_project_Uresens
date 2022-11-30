@@ -13,7 +13,7 @@ add_text_sidebar()
 st.write('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
 colored_header(
-    label="Hello!",
+    label="Hello! 👋",
     description="",
     color_name="red-70"
 )
@@ -21,9 +21,9 @@ colored_header(
 ########## Body ##########
 
 st.write("""
-        My name is Carles Sunyol and I'm the creator of UreSens. 
-        I was born in 1994 in Reus, Tarragona (Spain) and I studied Chemistry in Rovira i Virgili University in Tarragona. 
-        Later on, I studied a master's degree in Nanoscience, Materials in Process at the same place.
+        My name is **Carles Sunyol** and I'm the creator of **UreSens**. I was born in 1994 in Reus, Tarragona (Spain) and 
+        I studied **Chemistry** at Rovira i Virgili University in Tarragona. 
+        Later on, I studied for a master's degree in **Nanoscience, Materials and Processes** at the same place.
         """
         )
 
@@ -31,27 +31,27 @@ st.markdown('<center><img src="https://i.ibb.co/JqQjkmK/Carles.jpg" width=400></
 st.write("\n")
 
 st.write("""
-        Four years ago I started working as a Project Stewardship in a chemical company, leading more than 30 european projects that
-        involved developing the next generation of sustainable materials for the automotive industry. However, in my last years I realized
-        I had to make a change and start something new. My passion to understand data and story telling brought me to Ironhack Spain,
-        where I coursed a 2 month bootcamp of Data Analytics.
+        Four years ago I started working as a **Product Stewardship** in a chemical company, leading more than 30 European projects 
+        that involved developing the next generation of **sustainable materials** for the automotive industry. 
+        However, in my last years, I realized **I had to make a change** and start something new. 
+        My passion to understand data and storytelling brought me to Ironhack Spain, where I coursed a **2-month Bootcamp in Data Analytics**.
         """)
 st.write("""
-         I enrolled the course without any single clue of what Python was and much less about machine learning. But with the a lot of effort,
-         consistency and hours spent learning I soon realized that nothing is impossible.
+         I enrolled on the course **without any single clue of what Python was** and much less about machine learning. 
+         But with a lot of effort, consistency and hours spent learning I soon realized that **nothing is impossible**.
          """)
 st.write("""
-        UreSens is the culimination of the Data Analytics bootcamp at Ironhack
-        and all you see was entirely made in one week. I can't be more proud of myself of what I have done in such time.
+        **UreSens is the culmination** of the Data Analytics bootcamp at Ironhack and all you see was entirely made in one week. 
+        I can't be more proud of myself for what I have done in such a time.
         """
         )
 
 st.write("""
-        Thank you for visting my webpage and I hope this could be the start of a new adventure. You can contact me on my LinkedIn profile
-        in case of any doubts.
+        **Thank you** for visiting my webpage and I hope this could be the start of a new adventure. 
+        You can contact me on my **LinkedIn profile** in case of any doubts.
         """)
 
-st.write("#FromZeroToHero")
+st.write("**#FromZeroToHero**")
 card(
     title="LinkedIn",
     text="See my profile",
