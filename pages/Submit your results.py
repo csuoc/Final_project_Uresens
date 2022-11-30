@@ -59,6 +59,8 @@ st.write('**Please fill the following form. Input the required parameters marked
 # Name
 
 patientid = st.text_input("🧍‍♂️🧍‍♀️ Who are you?*")
+if patientid == "":
+    st.stop()
 
 # Date
 
