@@ -21,8 +21,6 @@ st.write('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_h
 
 ######## PASSWORD ######
 
-check_password()
-
 if check_password():
 
 ########## Initialize connection ##########
