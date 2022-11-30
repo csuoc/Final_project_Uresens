@@ -176,7 +176,7 @@ if check_password():
     for i in range(num):
         latest_iteration.text(f"Prediction is being initialized. Please wait {num - i} seconds...")
         bar.progress((110//num)*i)
-        time.sleep(1)
+        time.sleep(0.5)
         
     @st.cache(suppress_st_warning=True)
     def prediction(dataframe):
