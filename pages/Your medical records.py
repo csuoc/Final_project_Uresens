@@ -51,7 +51,6 @@ if check_password():
 ########## Plots ##########
 
     # Select person
-
     getnames = f"""SELECT DISTINCT(patientid) from samples;
                 """
     names = pd.read_sql_query(getnames, con=conn)
@@ -174,7 +173,7 @@ if check_password():
     sqlex = pd.read_sql_query(info, con=conn)
     df2 = pd.DataFrame(sqlex)
     # Rename columns
-    new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Erythrocytes Ok/NOk", "Hypertension Yes/No"]
+    new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Eritrocytes Ok/NOk", "Hypertension Yes/No"]
     for i, j in zip(df2.columns, new_name):
         rename_columns(df2, i, j)
 
