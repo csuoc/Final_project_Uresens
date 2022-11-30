@@ -65,7 +65,7 @@ st.video("./videos/2-reading.mp4")
 
 # Step 3
 st.write("""
-        4. **Input data**
+        4. **Input data** in Uresens Labs / Submit your results following the submission form.
         """
         )
 st.video("./videos/3-howtosubmitdata.webm")

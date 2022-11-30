@@ -17,7 +17,7 @@ colored_header(
     color_name="red-70"
 )
 
-# Body
+########## Body ##########
 
 img = Image.open("./images/Carles.jpg")
 
