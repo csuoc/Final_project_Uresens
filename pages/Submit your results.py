@@ -70,10 +70,11 @@ blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastoli
 
 # Hypertension
 
-hypertension = st.selectbox("📈 Have you been diagnosed with hypertension?*",
-                            ("Yes", "No"))
-
-if hypertension == "Yes":
+hypertension = selectbox("📈 Have you been diagnosed with hypertension?*",
+                            ["Yes", "No"])
+if hypertension == None:
+    st.stop()
+elif hypertension == "Yes":
     hypertension = 1
 elif hypertension == "No":
     hypertension = 0

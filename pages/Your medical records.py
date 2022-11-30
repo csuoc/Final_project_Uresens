@@ -169,6 +169,15 @@ if check_password():
     for i, j in zip(df2.columns, new_name):
         rename_columns(df2, i, j)
 
+    # Progress bar
+    latest_iteration = st.empty()
+    bar = st.progress(0)
+    num = 10
+    for i in range(num):
+        latest_iteration.text(f"Prediction is being initialized. Please wait {num - i} seconds...")
+        bar.progress((110//num)*i)
+        time.sleep(1)
+        
     @st.cache(suppress_st_warning=True)
     def prediction(dataframe):
         #Connect with H2O
