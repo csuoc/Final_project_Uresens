@@ -193,15 +193,15 @@ The app is divided in 5 sections:
 
 - **Home**: it's basically the landing page, the summary of what is UreSens
 
-<img src="./images/readme/home.gif">
+<img src="./images/readme/home.gif" width=400>
 
 - **About**: it contains the story behind the creator of UreSens (myself), with a direct link to my LinkedIn profile (you should check it out!)
 
-<img src="./images/readme/about.gif">
+<img src="./images/readme/about.gif" width=400>
 
 - **Chronic Kidney Disease**: it contains the basic epidemiology of CKD: symptoms, causes, treatment, tests... It's very interesting for anyone looking for information about this disease.
 
-<img src="./images/readme/ckd.gif">
+<img src="./images/readme/ckd.gif" width=400>
 
 # Links and Resources
 
