@@ -8,7 +8,9 @@ The disease represents an especially large burden in low- and middle-income coun
 
 The diagnosis of CKD is made by laboratory testing, most often by estimating glomerular filtration rate (GFR) from a filtration marker, such as serum creatinine or cystatin C, using various formulas, or by testing urine for the presence of albumin or protein (or a combination of these)(**Kidney Int Suppl. 2013; 3: 1-150**)
 
-Most studies have used estimated GFR (eGFR) to determine the presence of CKD (and, therefore, report on the prevalence of CKD stages 3–5), whereas other studies have combined albuminuria (typically defined as an albumin-to-creatinine ratio of >30 mg/g) and decreased eGFR to report on CKD stages 1–5. Finally, to differentiate CKD (which is considered to be a chronic progressive disease) from conditions such as acute kidney injury or from transient fluctuations in kidney function unrelated to kidney damage, the standard definition of CKD includes a so-called “chronicity criterion” (i.e., that the low eGFR or elevated urine albumin should be detectable for at least 90 days, requiring the presence of repeated measurements over time). **There is currently no consensus on the length of time used in the assessment of CKD when applying the chronicity criterion, with epidemiologic studies applying various algorithms, from single measurements to any repeated measurements past 90 days, or limiting the repeated measurement(s) to 90 to 365 days, and from requiring consecutive repeated markers of CKD to accepting CKD markers interspersed with markers not conforming to CKD criteria.**
+Most studies have used estimated GFR (eGFR) to determine the presence of CKD (and, therefore, report on the prevalence of CKD stages 3–5), whereas other studies have combined albuminuria (typically defined as an albumin-to-creatinine ratio of >30 mg/g) and decreased eGFR to report on CKD stages 1–5. Finally, to differentiate CKD (which is considered to be a chronic progressive disease) from conditions such as acute kidney injury or from transient fluctuations in kidney function unrelated to kidney damage, the standard definition of CKD includes a so-called “chronicity criterion” (i.e., that the low eGFR or elevated urine albumin should be detectable for at least 90 days, requiring the presence of repeated measurements over time). 
+
+**There is currently no consensus on the length of time used in the assessment of CKD when applying the chronicity criterion, with epidemiologic studies applying various algorithms, from single measurements to any repeated measurements past 90 days, or limiting the repeated measurement(s) to 90 to 365 days, and from requiring consecutive repeated markers of CKD to accepting CKD markers interspersed with markers not conforming to CKD criteria.**
 
 # 1. Objective
 
@@ -26,7 +28,7 @@ A clean version of this dataset was also found on Kaggle: https://www.kaggle.com
 
 This is how the data looked like:
 
-<img src="./images/readme/df.JPG">
+<img src="./images/readme/df.JPG" width=400>
 
 The data contains 400 rows and 14 columns. Each column name is the abbreviation of one parameter:
 
@@ -88,6 +90,7 @@ The model training was executed with H2O Auto ML
 
 H2O AutoML is designed to have as few parameters as possible so that all the user needs to do is point to their dataset, identify the response column and optionally specify a time constraint or limit on the number of total models trained.
 
+## 5.1. Initialization
 The steps to train the data were:
 
 - Initialize H2O service
@@ -113,14 +116,55 @@ The steps to train the data were:
     x.remove(y)
     ```
 
-# Model metrics
-| Auc | Logloss | Aucpr | Mean_per_class_error | RMSE | MSE |
+## 5.2 Executing H2O
+
+Running the modelling goes as follows:
+
+```python
+aml = H2OAutoML(max_models = 10, seed = 2, balance_classes = True)
+aml.train(x = x, y = y, training_frame = df)
+```
+where: 
+
+- **max_models** = the maximum number of models to build in an AutoML run, excluding the Stacked Ensemble models,
+
+- **seed** =  a seed for reproducibility,
+
+- **balance_classes** = oversample the minority classes to balance the class distribution,
+
+- **x** = a list/vector of predictor column names or indexes,
+
+- **y** = the name (or index) of the response column,
+
+- **training_set** = the training set
+
+Default parameters:
+
+- **nfolds:** -1. Let AutoML choose if k-fold cross-validation or blending mode should be used. Blending mode will use part of training_frame (if no blending_frame is provided) to train Stacked Ensembles.
+
+## 5.3 Leaderboard
+
+The AutoML object includes a “leaderboard” of models that were trained in the process, including the 5-fold cross-validated model performance (by default).
+
+The models are ranked by a default metric based on the problem type (the second column of the leaderboard). **In binary classification problems, that metric is AUC**, and in multiclass classification problems, the metric is mean per-class error. In regression problems, the default sort metric is RMSE.
+
+```python
+lb = aml.leaderboard
+print(lb.head(rows=lb.nrows))
+```
+
+An example of a leaderboard:
+<img src="./images/readme/leaderboard.jpg">
+
+## 5.4 The best model
+
+The best model obtained was with **Gradient Boosting**. The metrics were the following:
+
+| AUC | Logloss | Aucpr | Mean per class error | RMSE | MSE |
 | --- | --- | --- | --- | --- | --- |
 | 0.963173 | 0.202759 | 0.98234 | 0.0626667 | 0.242937 | 0.00185088 | 0.0590182 |
 
-H2O provides a variety of metrics that can be used for evaluating models:
-
-- **AUC (Are under the ROC curve):** It’s a way of measuring the performance of a binary classifier by comparing the False Positive Rate (FPR x-axis) to the True Positive Rate (TPR y-axis). An AUC of 1 indicates a perfect classifier, while an AUC of .5 indicates a poor classifier, whose performance is no better than random guessing. This is the default measure for the leaderboard.
+- **AUC (Are under the ROC curve):** It’s a way of measuring the performance of a binary classifier by comparing the False Positive Rate (FPR x-axis) to the True Positive Rate (TPR y-axis). An AUC of 1 indicates a perfect classifier, while an AUC of .5 indicates a poor classifier, whose performance is no better than random guessing.
 <br>
 
 - **Logloss:** Logarithmic loss. Measures the performance of a classifier by comparing the class probability to actual value (1 or 0). Unlike AUC which looks at how well a model can classify a binary target, logloss evaluates how close a model’s predicted values (uncalibrated probability estimates) are to the actual target value. Logloss can be any value greater than or equal to 0, with 0 meaning that the model correctly assigns a probability of 0% or 100%.
@@ -128,6 +172,15 @@ H2O provides a variety of metrics that can be used for evaluating models:
 
 - **AUCPR (Area under the Precision-Recall curve):** This model metric is used to evaluate how well a binary classification model is able to distinguish between precision recall pairs or points. The main difference between AUC and AUCPR is that AUC calculates the area under the ROC curve and AUCPR calculates the area under the Precision Recall curve. The Precision Recall curve does not care about True Negatives.
 Evaluation metrics for regression models (rmse, mse, …) are also calculated for classification problems.
+<br>
+
+- **Mean per class error:** is the average of the errors of each class in your multi-class data set. This metric speaks toward misclassification of the data across the classes. The lower this metric, the better.
+<br>
+
+- **RMSE:** RMSE is the Root Mean Square Error. The RMSE will always be larger or equal to the MAE. The RMSE metric evaluates how well a model can predict a continuous value. The RMSE units are the same units as your data’s dependent variable/target (so if that’s dollars, this is in dollars), which is useful for understanding whether the size of the error is meaningful or not. The smaller the RMSE, the better the model’s performance.  RSME is sensitive to outliers. If your data does not have outliers, then examine the Mean Average Error (MAE), which is not as sensitive to outliers.
+<br>
+
+- **MSE:** MSE is the Mean Square Error and is a model quality metric.  Closer to zero is better.  The MSE metric measures the average of the squares of the errors or deviations. MSE takes the distances from the points to the regression line (these distances are the “errors”) and then squares them to remove any negative signs. MSE incorporates both the variance and the bias of the predictor. MSE gives more weight to larger differences in errors than MAE.
 
 # Links and Resources
 
