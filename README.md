@@ -165,22 +165,43 @@ The best model obtained was with **Gradient Boosting**. The metrics were the fol
 | 0.963173 | 0.202759 | 0.98234 | 0.0626667 | 0.242937 | 0.00185088 | 0.0590182 |
 
 - **AUC (Are under the ROC curve):** It’s a way of measuring the performance of a binary classifier by comparing the False Positive Rate (FPR x-axis) to the True Positive Rate (TPR y-axis). An AUC of 1 indicates a perfect classifier, while an AUC of .5 indicates a poor classifier, whose performance is no better than random guessing.
-<br>
 
 - **Logloss:** Logarithmic loss. Measures the performance of a classifier by comparing the class probability to actual value (1 or 0). Unlike AUC which looks at how well a model can classify a binary target, logloss evaluates how close a model’s predicted values (uncalibrated probability estimates) are to the actual target value. Logloss can be any value greater than or equal to 0, with 0 meaning that the model correctly assigns a probability of 0% or 100%.
-<br>
 
 - **AUCPR (Area under the Precision-Recall curve):** This model metric is used to evaluate how well a binary classification model is able to distinguish between precision recall pairs or points. The main difference between AUC and AUCPR is that AUC calculates the area under the ROC curve and AUCPR calculates the area under the Precision Recall curve. The Precision Recall curve does not care about True Negatives.
 Evaluation metrics for regression models (rmse, mse, …) are also calculated for classification problems.
-<br>
 
 - **Mean per class error:** is the average of the errors of each class in your multi-class data set. This metric speaks toward misclassification of the data across the classes. The lower this metric, the better.
-<br>
 
 - **RMSE:** RMSE is the Root Mean Square Error. The RMSE will always be larger or equal to the MAE. The RMSE metric evaluates how well a model can predict a continuous value. The RMSE units are the same units as your data’s dependent variable/target (so if that’s dollars, this is in dollars), which is useful for understanding whether the size of the error is meaningful or not. The smaller the RMSE, the better the model’s performance.  RSME is sensitive to outliers. If your data does not have outliers, then examine the Mean Average Error (MAE), which is not as sensitive to outliers.
-<br>
 
 - **MSE:** MSE is the Mean Square Error and is a model quality metric.  Closer to zero is better.  The MSE metric measures the average of the squares of the errors or deviations. MSE takes the distances from the points to the regression line (these distances are the “errors”) and then squares them to remove any negative signs. MSE incorporates both the variance and the bias of the predictor. MSE gives more weight to larger differences in errors than MAE.
+
+## 5.5 Model saving
+
+The best model was stored in /models for later loading and prediction.
+
+# 6. Streamlit and deployment
+
+The app was made using Streamlit. Streamlit turns data scripts into shareable web apps in minutes and it's free to use.
+
+<img src="./images/readme/streamlit.jpeg" width=300>
+
+For more info visit https://streamlit.io/
+
+The app is divided in 5 sections:
+
+- **Home**: it's basically the landing page, the summary of what is UreSens
+
+<img src="./images/readme/home.gif">
+
+- **About**: it contains the story behind the creator of UreSens (myself), with a direct link to my LinkedIn profile (you should check it out!)
+
+<img src="./images/readme/about.gif">
+
+- **Chronic Kidney Disease**: it contains the basic epidemiology of CKD: symptoms, causes, treatment, tests... It's very interesting for anyone looking for information about this disease.
+
+<img src="./images/readme/ckd.gif">
 
 # Links and Resources
 
