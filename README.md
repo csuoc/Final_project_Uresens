@@ -191,7 +191,7 @@ Evaluation metrics for regression models (rmse, mse, …) are also calculated fo
 
 The best model was stored in /models for later loading and prediction.
 
-# 6. Streamlit and deployment
+# 6. Streamlit configuration
 
 The app was made using Streamlit. Streamlit turns data scripts into shareable web apps in minutes and it's free to use.
 
@@ -218,8 +218,9 @@ The app is divided in 5 sections:
 <img src="./images/readme/howto.gif" width=600>
  
 - **Submit your results:** A submission form to input the results of the urine test. It has been improved in order to be as easy as possible for the user. The user just has to input the name, date, blood pressure and if they are diagnosed with hypertension. Later, it only has to pick the corresponding colour in the corresponding pad. A submit button needs to be clicked in order to store the data.
+All the data is stored in a **MySQL database** in the cloud hosted in FreeSQLDatabase.com
 
-It also contains technical information about the test pads and limitations about the technique.
+    It also contains technical information about the test pads and limitations about the technique.
 
 <img src="./images/readme/submit.gif" width=600>
 
@@ -227,22 +228,30 @@ It also contains technical information about the test pads and limitations about
 
 <img src="./images/readme/records.gif" width=600>
 
-# Links and Resources
+## 6.1 Deployment
 
-- https://www.kisupplements.org/article/S2157-1716(21)00066-6/fulltext
+The app can be accessible through the following URL:
+```
+https://uresens.streamlit.app
+```
+
+or by scanning this QR:
+
+<img src="./images/readme/qr.png" width=200>
+
+# 7. Links and Resources
+
+- Infographics: https://www.kisupplements.org/article/S2157-1716(21)00066-6/fulltext
   
-- Cleaned dataset from: https://www.kaggle.com/datasets/abhia1999/chronic-kidney-disease
+- Scientific paper about CKD modelling: https://www.hindawi.com/journals/cmmm/2021/6141470/
 
-- Paper about this: https://www.hindawi.com/journals/cmmm/2021/6141470/
-
-- Kidney stone original paper: https://link-springer-com.sabidi.urv.cat/chapter/10.1007/978-1-4612-5098-2_45
-
-- Urine pH dataset: https://www.kaggle.com/datasets/zfturbo/measurements-of-urine-ph?select=ph_v1_days.csv
+- H2O AutoML docs: https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html
   
-- pH recognition dataset: https://www.kaggle.com/datasets/robjan/ph-recognition
-
 - H2O tutorial: https://github.com/h2oai/h2o-tutorials/blob/master/h2o-world-2017/automl/Python/automl_binary_classification_product_backorders.ipynb
 
-- MySQL Connector: https://dev.mysql.com/doc/connector-python/en/connector-python-example-cursor-select.html
+- Metrics information: https://www.mle.hamburg/_repos/dat_sci/11_ml_perf_meas/
+  
+- MySQL Connector docs: https://dev.mysql.com/doc/connector-python/en/connector-python-example-cursor-select.html
 
-- Metrics: https://www.mle.hamburg/_repos/dat_sci/11_ml_perf_meas/
+- Streamlit docs: https://docs.streamlit.io/
+
