@@ -31,7 +31,7 @@ print("\n")
 print ("########### CORRELATION MATRIX ###########\n")
 fig, ax = plt.subplots(figsize=(10,10))  
 sns.heatmap(df.corr(), annot=True)
-#plt.show()
+plt.show()
 print("\n")
 
 # Deleting useless columns
