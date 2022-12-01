@@ -60,7 +60,7 @@ st.write('**Please fill the following form. Input the required parameters marked
 
 patientid = st.text_input("🧍‍♂️🧍‍♀️ Who are you?*")
 if patientid == "":
-    st.stop()
+    st.warning("Please input your name", icon="💡")
 
 # Date
 
@@ -68,14 +68,17 @@ date = st.date_input("🗓 Input the current date*")
 
 #Blood pressure
 
-blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):*", 0, 200)
+blood_pressure = st.number_input("🩺 Enter your blood pressure value (diastolic):*", 0, 150)
+
+if blood_pressure < 50:
+    st.warning("Please input a value between 50 and 150", icon="💡")
 
 # Hypertension
 
 hypertension = selectbox("📈 Have you been diagnosed with hypertension?*",
                             ["Yes", "No"])
 if hypertension == None:
-    st.stop()
+    st.warning("Please select Yes or No", icon="💡")
 elif hypertension == "Yes":
     hypertension = 1
 elif hypertension == "No":

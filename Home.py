@@ -62,7 +62,7 @@ card(
     title="Instructions",
     text="How to use the urine strips?",
     image="https://i.ibb.co/FVSTQR5/urinetest.jpg",
-    url="/Instructions",
+    url="/How_to_take_a_urine_sample",
 )
 
 card(
