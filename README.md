@@ -16,9 +16,15 @@ Most studies have used estimated GFR (eGFR) to determine the presence of CKD (an
 
 Find, clean and train data from patients with Chronic Kidney Disease to monitor the biomarkers from urine and possibly predict and detect early stages of Chronic Kidney Disease with a single urinanalysis test.
 
-# 2. Repo contents
+# 2. Running the app
 
+Download the full repo, install the environment.yml file and requirements.txt file. Then, in a terminal run the following command:
 
+```
+streamlit run Home.py
+```
+
+and a local version of the app should prompt in your web browser.
 
 # 3. Data acquisition
 
@@ -28,7 +34,7 @@ A clean version of this dataset was also found on Kaggle: https://www.kaggle.com
 
 This is how the data looked like:
 
-<img src="./images/readme/df.JPG" width=400>
+<img src="./images/readme/df.JPG" width=600>
 
 The data contains 400 rows and 14 columns. Each column name is the abbreviation of one parameter:
 
@@ -68,7 +74,7 @@ Therefore, the final variables are:
 - Blood pressure
 - Albumin
 - Glucose
-- Erythrocytes
+- Erythrocytes (blood)
 - Hypertension
 - Class
 
@@ -79,6 +85,10 @@ A new column, "Patient", was added in order to be the Primary Key in the MySQL d
 ```
 The result was exported in data/chronic_disease_db_clean.csv
 ```
+
+This is how the data looked after cleaning:
+
+<img src="./images/readme/dfclean.JPG" width=600>
 
 # 5. Machine Learning: modelling the data
 
@@ -191,17 +201,31 @@ For more info visit https://streamlit.io/
 
 The app is divided in 5 sections:
 
-- **Home**: it's basically the landing page, the summary of what is UreSens
+- **Home:** it's basically the landing page, the summary of what is UreSens
 
 <img src="./images/readme/home.gif" width=600>
 
-- **About**: it contains the story behind the creator of UreSens (myself), with a direct link to my LinkedIn profile (you should check it out!)
+- **About:** it contains the story behind the creator of UreSens (myself), with a direct link to my LinkedIn profile (you should check it out!)
 
 <img src="./images/readme/about.gif" width=600>
 
-- **Chronic Kidney Disease**: it contains the basic epidemiology of CKD: symptoms, causes, treatment, tests... It's very interesting for anyone looking for information about this disease.
+- **Chronic Kidney Disease:** it contains the basic epidemiology of CKD: symptoms, causes, treatment, tests... It's very interesting for anyone looking for information about this disease.
 
 <img src="./images/readme/ckd.gif" width=600>
+
+- **How to take a urine sample:** detailed instructions about how to take a urine test with urine strips. With videos for better understanding.
+
+<img src="./images/readme/howto.gif" width=600>
+ 
+- **Submit your results:** A submission form to input the results of the urine test. It has been improved in order to be as easy as possible for the user. The user just has to input the name, date, blood pressure and if they are diagnosed with hypertension. Later, it only has to pick the corresponding colour in the corresponding pad. A submit button needs to be clicked in order to store the data.
+
+It also contains technical information about the test pads and limitations about the technique.
+
+<img src="./images/readme/submit.gif" width=600>
+
+- **Your medical records:**
+
+<img src="./images/readme/records.gif" width=600>
 
 # Links and Resources
 
