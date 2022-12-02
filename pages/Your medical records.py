@@ -59,7 +59,8 @@ if check_password():
     # Retrieve from MySQL
     getresults = f"""SELECT date, blood_pressure, albumin, sugar, erythrocytes, leucocytes, nitrite, urobilinogen, ph,
                             gravity, ketones, bilirubin, microalbumin, creatinine, micro_creat_ratio FROM samples
-                                WHERE patientid="{patientid}";
+                                WHERE patientid="{patientid}"
+                                ORDER BY `date` ASC;
                 """
     result = pd.read_sql_query(getresults, con=conn)
     # Convert as dataframe
