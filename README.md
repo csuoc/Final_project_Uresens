@@ -164,7 +164,7 @@ print(lb.head(rows=lb.nrows))
 ```
 
 An example of a leaderboard:
-<img src="./images/readme/leaderboard.jpg">
+<img src="./images/readme/leaderboard.JPG">
 
 ## 5.4 The best model
 
