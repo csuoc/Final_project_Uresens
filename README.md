@@ -168,7 +168,7 @@ An example of a leaderboard:
 
 ## 5.4 The best model
 
-The best model obtained was with **Gradient Boosting**. The metrics were the following:
+The best model obtained was with **Gradient Boosting Machine**. The metrics were the following:
 
 | AUC | Logloss | Aucpr | Mean per class error | RMSE | MSE |
 | --- | --- | --- | --- | --- | --- |
