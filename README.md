@@ -199,7 +199,7 @@ The app was made using Streamlit. Streamlit turns data scripts into shareable we
 
 For more info visit https://streamlit.io/
 
-The app is divided in 5 sections:
+The app is divided in 6 sections:
 
 - **Home:** it's basically the landing page, the summary of what is UreSens
 
