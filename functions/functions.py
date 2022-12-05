@@ -58,9 +58,9 @@ def resize_images(image_path, width, height):
     return resized_image
 
 def check_password():
-    import streamlit as st
     """Returns `True` if the user had a correct password."""
-
+    import streamlit as st
+    
     def password_entered():
         """Checks whether a password entered by the user is correct."""
         if (

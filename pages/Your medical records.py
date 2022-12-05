@@ -169,17 +169,19 @@ if check_password():
     new_name=["Blood Pressure mm/Hg diastolic", "Albumin (0-5)", "Sugar (0-5)", "Eritrocytes Ok/NOk", "Hypertension Yes/No"]
     for i, j in zip(df2.columns, new_name):
         rename_columns(df2, i, j)
-       
+
+    # Progress bar
+    latest_iteration = st.empty()
+    bar = st.progress(0)
+    num = 10
+    for i in range(num):
+        latest_iteration.text(f"Prediction is being initialized. Please wait {num - i} seconds...")
+        bar.progress((110//num)*i)
+        time.sleep(0.5)
+
     @st.cache(suppress_st_warning=True)
     def prediction(dataframe):
-        # Progress bar
-        latest_iteration = st.empty()
-        bar = st.progress(0)
-        num = 10
-        for i in range(num):
-            latest_iteration.text(f"Prediction is being initialized. Please wait {num - i} seconds...")
-            bar.progress((110//num)*i)
-            time.sleep(0.5)
+
         #Connect with H2O
         h2o.init()
         # Load file
