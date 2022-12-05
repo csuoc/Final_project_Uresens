@@ -248,7 +248,7 @@ or by scanning this QR:
   
 - Code arrengement, cleaning to provide faster results
 
-- Ask more hospitals to gather more information and be able to predict this disease with all the biomarkers from urine, not only a few Besides, I also need to validate the result whit real people with this disease.
+- Ask more hospitals to gather more information and be able to predict this disease with all the biomarkers from urine, not only a few. Besides, I also need to validate the result whit real people with this disease.
 
 # 8. Links and Resources
 
