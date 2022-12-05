@@ -224,16 +224,17 @@ All the data is stored in a **MySQL database** in the cloud hosted in FreeSQLDat
 
 <img src="./images/readme/submit.gif" width=600>
 
-- **Your medical records:**
+- **Your medical records:** In this section the user can monitor the analyzed urine biomarkers. The information previously stored in the database is now read and plotted in an interactive chart. The user can select which parameter they want to check. It also provides information about the safe or unsafe concentration levels of that biomarker.
+  The second part of the page contains the jewel in the crown: the GBM model takes the average of the 5 main parameters and predicts whether that person might have an early stage of CKD or not. If it does, it pops up a message suggesting the user to visit the doctor for furher analysis.
+  In order to prevent data leaking of medical results, this section is password protected, but a video is provided to show how it works:
 
 <img src="./images/readme/records.gif" width=600>
 
 ## 6.1 Deployment
 
-The app can be accessible through the following URL:
-```
-https://uresens.streamlit.app
-```
+The app has been deployed using STREAMLIT. It can be accessible through the following URL:
+
+**https://uresens.streamlit.app**
 
 or by scanning this QR:
 
