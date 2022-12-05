@@ -1,4 +1,4 @@
-# UreSens: a diagnosis tool to monitor and predict Chronic Kidney Disease
+# UreSens: a diagnosis tool to monitor and predict Chronic Kidney Disease with a single urinalysis
 
 Chronic kidney disease is a progressive condition that affects >10% of the general population worldwide, amounting to >800 million individuals. Chronic kidney disease is more prevalent in older individuals, women, racial minorities, and in people experiencing diabetes mellitus and hypertension. 
 
@@ -240,7 +240,17 @@ or by scanning this QR:
 
 <img src="./images/readme/qr.png" width=200>
 
-# 7. Links and Resources
+# 7. Future improvements
+
+- The logged user currently can see the results of every user that took the test. The idea is that the plot shown and the ML result corresponds to the current username,
+
+- A definitive hosting for the MySQL databse,
+  
+- Code arrengement, cleaning to provide faster results
+
+- Ask more hospitals to gather more information and be able to predict this disease with all the biomarkers from urine, not only a few Besides, I also need to validate the result whit real people with this disease.
+
+# 8. Links and Resources
 
 - Infographics: https://www.kisupplements.org/article/S2157-1716(21)00066-6/fulltext
   
