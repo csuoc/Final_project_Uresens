@@ -38,6 +38,14 @@ aml.train(x = x, y = y, training_frame = df)
 lb = aml.leaderboard
 print(lb.head(rows=lb.nrows))
 
+# Mtrics
+
+print(aml.leader.model_performance())
+
+# Plot
+
+print(aml.leader.model_performance().plot())
+
 # Save first (and best) model
 
 h2o.save_model(aml.leader, path = "./models")
