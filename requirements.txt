@@ -2,7 +2,7 @@ h2o==3.38.0.3
 matplotlib==3.5.3
 pandas==1.5.1
 mysql-connector-python==8.0.31
-streamlit==1.15.1
+streamlit==1.22.0
 opencv-python==4.6.0.66
 imutils==0.5.4
 plotly==5.11.0
